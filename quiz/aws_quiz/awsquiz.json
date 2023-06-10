@@ -1,0 +1,561 @@
+[{
+    "id" : "0",
+    "question" : "Sie sind ein AWS-Lösungsarchitekt. Ihr Unternehmen verfügt über eine erfolgreiche Webanwendung, die in einer AWS Auto Scaling-Gruppe bereitgestellt wird. Die Anwendung zieht immer mehr globale Kunden an. Die Leistung der Anwendung wird jedoch beeinträchtigt. Ihr Vorgesetzter fragt Sie, wie Sie die Leistung und Verfügbarkeit der Anwendung verbessern können. Welche der folgenden AWS-Dienste würden Sie empfehlen?",
+    "answer" : {
+        "A" : "AWS DataSync",
+        "B" : "Amazon DynamoDB Accelerator",
+        "C" : "AWS Lake Formation",
+        "D" : "AWS Global Accelerator"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "1",
+    "question" : "Ihr Team entwickelt eine High-Performance-Computing-Anwendung (HPC). Die Anwendung löst komplexe, rechenintensive Probleme und benötigt ein leistungsstarkes Lustre-Dateisystem mit geringer Latenz. Sie müssen dieses Dateisystem kostengünstig in AWS konfigurieren. Welche Methode ist am besten geeignet?",
+    "answer" : {
+        "A" : "Erstellen eines Lustre-Dateisystems über Amazon FSx.",
+        "B" : "Starten Sie ein leistungsstarkes Lustre-Dateisystem in Amazon EBS.",
+        "C" : "Erstellen Sie einen Hochgeschwindigkeits-Volume-Cluster in einer EC2-Platzierungsgruppe.",
+        "D" : "Starten Sie das Lustre-Dateisystem über AWS Marketplace."
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "2",
+    "question" : "Sie hosten eine statische Website in einem S3-Bucket und es gibt globale Kunden aus mehreren Regionen. Sie möchten einen AWS-Service verwenden, um den Cache für häufig aufgerufene Inhalte zu speichern, damit die Latenz verringert und die Datenübertragungsrate erhöht wird. Welche der folgenden Optionen würden Sie wählen?",
+    "answer" : {
+        "A" : "Verwenden Sie AWS-SDKs, um parallele Anforderungen an die Amazon S3-Service-Endpunkte horizontal zu skalieren.",
+        "B" : "Erstellen Sie mehrere Amazon S3-Buckets und platzieren Sie Amazon EC2 und S3 in derselben AWS-Region.",  
+        "C" : "Aktivieren Sie die regionsübergreifende Replikation in mehrere AWS-Regionen, um Kunden von verschiedenen Standorten aus zu bedienen.",
+        "D" : "Konfigurieren Sie CloudFront so, dass die Inhalte im S3-Bucket bereitgestellt werden."
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "3",
+    "question" : "Ihr Unternehmen verfügt über eine Online-Spieleanwendung, die in einer Auto Scaling-Gruppe bereitgestellt wird. Der Datenverkehr der Anwendung ist vorhersehbar. Jeden Freitag nimmt der Verkehr zu, bleibt an den Wochenenden hoch und sinkt dann am Montag. Sie müssen die Skalierungsaktionen für die Auto Scaling-Gruppe planen. Welche Methode eignet sich am besten für die Skalierungsrichtlinie?",
+    "answer" : {
+        "A" : "Konfigurieren Sie eine geplante CloudWatch-Ereignisregel, um Instances jede Woche zur angegebenen Zeit zu starten/beenden.",
+        "B" : "Erstellen Sie eine vordefinierte Skalierungsrichtlinie für die Zielverfolgung, die auf der durchschnittlichen CPU-Metrik basiert, und die ASG wird automatisch skaliert.",  
+        "C" : "Wählen Sie die ASG aus, und fügen Sie auf der Registerkarte Automatische Skalierung eine Richtlinie für die schrittweise Skalierung hinzu, um jede Woche zu einer festen Zeit automatisch horizontal hoch- und herunterzuskalieren.",
+        "D" : "Konfigurieren Sie eine geplante Aktion in der Auto Scaling-Gruppe, indem Sie die Wiederholung, die Start-/Endzeit, die Kapazitäten usw. angeben."
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "4",
+    "question" : "Sie erstellen mehrere EC2-Instances für eine neue Anwendung. Für eine bessere Leistung der Anwendung sind sowohl eine geringe Netzwerklatenz als auch ein hoher Netzwerkdurchsatz für die EC2-Instances erforderlich. Alle Instances sollten in einer einzigen Availability Zone gestartet werden. Wie würden Sie das konfigurieren?",
+    "answer" : {
+        "A" : "Starten Sie alle EC2-Instances in einer Platzierungsgruppe mithilfe einer Cluster-Platzierungsstrategie.",
+        "B" : "Automatische Zuweisung einer öffentlichen IP-Adresse beim Starten der EC2-Instances.", 
+        "C" : "Starten Sie EC2-Instances in einer EC2-Platzierungsgruppe und wählen Sie die Platzierungsstrategie verteilen aus.",
+        "D" : "Wählen Sie beim Starten der EC2-Instances einen Instance-Typ aus, der Enhanced Networking unterstützt."
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "5",
+    "question" : "Sie müssen eine Machine-Learning-Anwendung in AWS EC2 bereitstellen. Die Leistung der Kommunikation zwischen Instanzen ist für die Anwendung sehr wichtig, und Sie möchten ein Netzwerkgerät an die Instanz anschließen, damit die Leistung erheblich verbessert werden kann. Welche Option ist am besten geeignet, um die Leistung zu verbessern?",
+    "answer" : {
+        "A" : "Aktivieren Sie erweiterte Netzwerkfunktionen in der EC2-Instance.",
+        "B" : "Konfigurieren Sie den Elastic Fabric Adapter (EFA) in der Instanz.",  
+        "C" : "Fügen Sie Hochgeschwindigkeits-ENI (Elastic Network Interface) an die Instanz an.",
+        "D" : "Erstellen Sie ein elastisches Dateisystem (Elastic File System, EFS) und binden Sie das Dateisystem in der Instanz ein."
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "6",
+    "question" : "Sie haben einen S3-Bucket, der Fotos empfängt, die von Kunden hochgeladen wurden. Beim Hochladen eines Objekts wird eine Ereignisbenachrichtigung mit den Objektdetails an eine SQS-Warteschlange gesendet. Sie verfügen auch über einen ECS-Cluster, der Nachrichten aus der Warteschlange abruft, um die Stapelverarbeitung durchzuführen. Die Warteschlangengröße kann sich je nach Anzahl der eingehenden Nachrichten und der Back-End-Verarbeitungsgeschwindigkeit stark ändern. Welche Metrik würden Sie verwenden, um die ECS-Cluster-Kapazität hoch- oder herunterzuskalieren?",
+    "answer" : {
+        "A" : "Die Anzahl der Nachrichten in der SQS-Warteschlange.",
+        "B" : "Speicherauslastung des ECS-Clusters.",  
+        "C" : "Anzahl der Objekte im S3-Bucket.",
+        "D" : "Anzahl der Container im ECS-Cluster."
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "7",
+    "question" : "Sie planen, eine Flotte von EBS-optimierten EC2-Instances für Ihre neue Anwendung zu erstellen. Aufgrund der Sicherheitskonformität möchte Ihr Unternehmen, dass Sie das Root-Volume verschlüsseln, das zum Starten der Instanzen verwendet wird. Wie kann das gelingen?",
+    "answer" : {
+        "A" : "Wählen Sie die Option Verschlüsselung für das Root-EBS-Volume aus, während Sie die EC2-Instance starten.",
+        "B" : "Sobald die EC2-Instances gestartet sind, verschlüsseln Sie das Root-Volume mit AWS KMS Master Key.",  
+        "C" : "Root-Volumes können nicht verschlüsselt werden. Fügen Sie ein weiteres EBS-Volume mit einer Verschlüsselungsoption hinzu, die beim Start ausgewählt wurde. Sobald EC2-Instances gestartet sind, erstellen Sie verschlüsseltes EBS-Volume als Root-Volume über die Konsole.",
+        "D" : "Starten Sie eine unverschlüsselte EC2-Instance und erstellen Sie einen Snapshot des Root-Volumes. Erstellen Sie eine Kopie des Snapshots mit ausgewählter Verschlüsselungsoption und CreateImage unter Verwendung des verschlüsselten Snapshots. Verwenden Sie dieses Image, um EC2-Instances zu starten."
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "8",
+    "question" : "Die Organisation XYZ plant, eine Online-Chat-Anwendung für die Zusammenarbeit auf Unternehmensebene für ihre Mitarbeiter auf der ganzen Welt zu entwickeln. Sie suchen nach einer vollständig verwalteten Datenbank mit einstelliger Latenz, um Konversationen zu speichern und abzurufen. Welchen AWS Database-Service würden Sie empfehlen?",
+    "answer" : {
+        "A" : "AWS DynamoDB",
+        "B" : "AWS RDS",  
+        "C" : "AWS Redshift",
+        "D" : "AWS Aurora"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "9",
+    "question" : "Welche der folgenden Verteilungen ist beim Erstellen einer AWS CloudFront-Verteilung kein Ursprung?",
+    "answer" : {
+        "A" : "Elastic Load Balancer",
+        "B" : "AWS S3-Bucket",  
+        "C" : "Endpunkt des AWS MediaPackage-Kanals",
+        "D" : "AWS Lambda"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "10",
+    "question" : "Welche der folgenden Aussagen treffen in Bezug auf VPC zu? (mehrere auswählen)",
+    "answer" : {
+        "A" : "Einem Subnetz können mehrere Routingtabellen zugeordnet sein.",
+        "B" : "Eine Netzwerk-ACL kann mehreren Subnetzen zugeordnet werden.",  
+        "C" : "Eine Route mit dem Ziel 'local' in der Routing-Tabelle kann bearbeitet werden, um den Datenverkehr innerhalb der VPC einzuschränken.",
+        "D" : "Der IP-CIDR-Block des Subnetzes kann mit dem VPC-CIDR-Block identisch sein."
+    },
+    "correct_answer" : "B,D"
+},
+{
+    "id" : "11",
+    "question" : "Die Organisation ABC hat einen Kundenstamm in den USA und Australien, der Dateien mit 10 GB aus Ihrer Anwendung herunterlädt. Um ein besseres Download-Erlebnis zu haben, entschieden sie sich für die Verwendung des AWS S3-Buckets mit regionsübergreifender Replikation mit den USA als Quelle und Australien als Ziel. Sie verwenden vorhandene, nicht verwendete S3-Buckets und haben die regionsübergreifende Replikation erfolgreich eingerichtet. Wenn Dateien jedoch in den US-Bucket hochgeladen werden, werden sie nicht in den Australien-Bucket repliziert. Woran könnte das liegen?",
+    "answer" : {
+        "A" : "Die Versionierung ist für die Quell- und Ziel-Buckets nicht aktiviert.",
+        "B" : "Die Verschlüsselung ist für die Quell- und Ziel-Buckets nicht aktiviert.",  
+        "C" : "Der Quell-Bucket verfügt über eine Richtlinie mit DENY, und die für die Replikation verwendete Rolle ist nicht von DENY ausgeschlossen.",
+        "D" : "In der Standard-CORS-Richtlinie des Ziel-Buckets wird der Quell-Bucket nicht als Ursprung hinzugefügt."
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "12",
+    "question" : "Welche der folgenden Kategorien gehört nicht zu den AWS Trusted Advisor-Serviceprüfungen?",
+    "answer" : {
+        "A" : "Kostenoptimierung",
+        "B" : "Fehlertoleranz",  
+        "C" : "Servicebeschränkungen",
+        "D" : "Netzwerkoptimierung"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "13",
+    "question" : " Ihr Unternehmen baut eine Kollaborationsplattform auf, für die es AWS EC2 für Web- und Anwendungsserver und eine MySQL RDS-Instanz als Datenbank ausgewählt hat. Aufgrund der Art des Datenverkehrs zur Anwendung möchten sie die Anzahl der Verbindungen zu RDS-Instances erhöhen. Wie kann das gelingen?",
+    "answer" : {
+        "A" : "Melden Sie sich bei der RDS-Instance an und ändern Sie die Datenbankkonfigurationsdatei unter /etc/mysql/my.cnf",
+        "B" : "Erstellen Sie eine neue Parametergruppe, hängen Sie sie an die DB-Instance an und ändern Sie die Einstellung.",  
+        "C" : "Erstellen Sie eine neue Optionsgruppe, fügen Sie sie der DB-Instance hinzu und ändern Sie die Einstellung.",
+        "D" : "Ändern Sie die Einstellung in der Standardoptionsgruppe, die der DB-Instance zugeordnet ist."
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "14",
+    "question" : "Sie starten und beenden EC2-Instances je nach Bedarf für Ihre Workloads. Sie müssen einige Shell-Skripte ausführen und bestimmte Überprüfungen durchführen, um eine Verbindung zum AWS S3-Bucket herzustellen, wenn die Instance gestartet wird. Mit welcher der folgenden Optionen können Sie während des Starts Aufgaben ausführen? (mehrere auswählen)",
+    "answer" : {
+        "A" : "Verwenden Sie Instanzbenutzerdaten für Shell-Skripte.",
+        "B" : "Verwenden Sie Instanzmetadaten für Shell-Skripte.",  
+        "C" : "Verwenden Sie AutoScaling-Gruppen-Lebenszyklus-Hooks und lösen Sie die AWS Lambda-Funktion über CloudWatch-Ereignisse aus.",
+        "D" : "Verwenden Sie Platzierungsgruppen und legen Sie den Status 'InstanceLaunch' fest, um AWS Lambda-Funktionen auszulösen."
+    },
+    "correct_answer" : "A,C"
+},
+{
+    "id" : "15",
+    "question" : "Ihr Unternehmen verfügt über ein AWS-Setup und plant die Erstellung von Single Sign-On, damit sich Benutzer mit lokalen Microsoft Active Directory Federation Services (ADFS) authentifizieren und Benutzer mit AWS STS Enterprise Identity Federation bei der AWS-Konsole anmelden können. Welche der folgenden Services müssen Sie vom AWS STS-Service aufrufen, nachdem Sie sich bei Ihrem On-Premise-Server authentifiziert haben?",
+    "answer" : {
+        "A" : "AssumeRoleWithSAML",
+        "B" : "GetFederationToken",  
+        "C" : "AssumeRoleWithWebIdentity",
+        "D" : "GetCallerIdentity"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "16",
+    "question" : "An wie viele VPCs kann ein Internet Gateway gleichzeitig angeschlossen werden?",
+    "answer" : {
+        "A" : "2",
+        "B" : "5",  
+        "C" : "1",
+        "D" : "Standardmäßig 1. Es kann jedoch an jede VPC angehängt werden, die mit der zugehörigen VPC verbunden ist."
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "17",
+    "question" : "Ihr Unternehmen plante, eine Webanwendung auf AWS EC2 zu entwickeln. Der Anwendungsadministrator wurde beauftragt, die AWS-Einrichtung durchzuführen, die zum Drehen der EC2-Instance in einer vorhandenen privaten VPC erforderlich ist. Er hat ein Subnetz erstellt und möchte sicherstellen, dass außer der spezifischen IP-Adresse keine anderen Subnetze in der VPC mit Ihrem Subnetz kommunizieren können. Er hat also eine neue Routing-Tabelle erstellt und dem neuen Subnetz zugeordnet. Wenn er/sie versucht hat, die Route mit dem Ziel als lokal zu löschen, gibt es keine Option zum Löschen der Route. Was könnte dieses Verhalten verursacht haben?",
+    "answer" : {
+        "A" : "Die Richtlinie, die dem IAM-Benutzer zugeordnet ist, hat keinen Zugriff zum Entfernen von Routen.",
+        "B" : "Eine Route, bei der das Ziel 'lokal' ist, kann nicht gelöscht werden.",
+        "C" : "Sie können keine Routen hinzufügen/löschen, wenn sie mit dem Subnetz verknüpft sind. Entfernen Sie zugeordnete Routen, fügen Sie Routen hinzu oder löschen Sie sie, und ordnen Sie sie erneut dem Subnetz zu.",
+        "D" : "Es muss mindestens eine Route in der Routing-Tabelle vorhanden sein. Fügen Sie eine neue Route hinzu, um die Löschoption für vorhandene Routen zu aktivieren."
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "18",
+    "question" : "Welche der folgenden Lösungen werden nicht von AWS bereitgestellt? (mehrere auswählen)",
+    "answer" : {
+        "A" : "AWS Elastic Block Store B. AWS Storage Gateway",
+        "B" : "AWS Elastic Beanstalk",  
+        "C" : "AWS Database Migration Hub",
+        "D" : "AWS CloudFormation"
+    },
+    "correct_answer" : "C,E"
+},
+{
+    "id" : "19",
+    "question" : "Die Organisation ABC muss E-Mails von ihrer Anwendung, die auf einer EC2-Instance in einer privaten VPC bereitgestellt wird, an mehrere Benutzer senden. E-Mail-Empfänger sind keine IAM-Benutzer. Sie haben sich für die Verwendung von AWS Simple Email Service entschieden und über die E-Mail-Adresse konfiguriert. Sie verwenden die AWS SES-API, um E-Mails von Ihrer EC2-Instance an mehrere Benutzer zu senden. Der E-Mail-Versand ist jedoch fehlgeschlagen. Welche der folgenden Optionen könnte der Grund sein?",
+    "answer" : {
+        "A" : "Sie haben keinen VPC-Endpunkt für den SES-Service erstellt und in der Routing-Tabelle konfiguriert.",
+        "B" : "AWS SES befindet sich standardmäßig im Sandbox-Modus, der E-Mails nur an verifizierte E-Mail-Adressen senden kann.",  
+        "C" : "Der IAM-Benutzer der konfigurierten Absender-E-Mail-Adresse hat keinen Zugriff auf AWS SES zum Senden von E-Mails.",
+        "D" : "AWS SES kann keine E-Mails an Adressen senden, die nicht als IAM-Benutzer konfiguriert sind. Sie müssen den SMTP-Service von AWS verwenden."
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "20",
+    "question" : "Sie haben die AWS S3-Ereignisbenachrichtigung so konfiguriert, dass eine Nachricht an AWS Simple Queue Service gesendet wird, wenn ein Objekt gelöscht wird. Sie führen eine ReceiveMessage-API-Operation in der AWS SQS-Warteschlange aus, um die S3-Löschobjektnachricht auf der AWS EC2-Instance zu empfangen. Bei allen erfolgreichen Nachrichtenvorgängen löschen Sie sie aus der Warteschlange. Bei fehlgeschlagenen Vorgängen werden die Nachrichten nicht gelöscht. Sie haben einen Wiederholungsmechanismus entwickelt, der die Anwendung alle 5 Minuten bei fehlgeschlagenen ReceiveMessage-Vorgängen erneut ausführt. Sie erhalten die Meldungen jedoch während der Wiederholung nicht mehr. Woran könnte das gelegen haben?",
+    "answer" : {
+        "A" : "AWS SQS löscht die Nachricht, nachdem sie über die ReceiveMessage-API",
+        "B" : "Sie verwenden Long Polling, bei dem die Nachrichtenübermittlung nicht garantiert wird.        ",
+        "C" : "Fehlgeschlagene ReceiveMessage-Warteschlangennachrichten werden automatisch an Warteschlangen für unzustellbare Nachrichten gesendet. Sie müssen ReceiveMessage aus der Warteschlange für unzustellbare Nachrichten für fehlgeschlagene Wiederholungen empfangen.",
+        "D" : "Das Sichtbarkeitstimeout für die SQS-Warteschlange ist auf 10 Minuten festgelegt."
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "21",
+    "question" : "Sie hatten einen internen HTTP(S) Elastic Load Balancer eingerichtet, um Anfragen an zwei EC2-Instances innerhalb einer privaten VPC weiterzuleiten. Eine der EC2-Ziel-Instances zeigt jedoch den Status 'Unhealthy' an. Welche der folgenden Optionen könnte kein Grund dafür sein?",
+    "answer" : {
+        "A" : "Port 80/443 ist in der Sicherheitsgruppe der EC2-Instance vom Load Balancer nicht zulässig.",
+        "B" : "Eine EC2-Instance befindet sich in anderen Availability Zones als der Load Balancer.",
+        "C" : "Der Ping-Pfad ist auf der EC2-Instance nicht vorhanden.",
+        "D" : "Das Ziel hat keinen erfolgreichen Antwortcode zurückgegeben"
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "22",
+    "question" : "Ihr Unternehmen verfügt über ein vorhandenes VPC-Setup und muss jeglichen Datenverkehr, der von VPC zu AWS S3-Bucket geht, über das interne AWS-Netzwerk weiterleiten. Daher haben sie einen VPC-Endpunkt für S3 erstellt und so konfiguriert, dass Datenverkehr für S3-Buckets zugelassen wird. Die Anwendung, die Sie entwickeln, beinhaltet das Senden von Datenverkehr an AWS S3-Bucket von VPC, für die Sie einen ähnlichen Ansatz verwenden wollten. Sie haben eine neue Routing-Tabelle erstellt, die Route zum VPC-Endpunkt hinzugefügt und die Routing-Tabelle mit Ihrem neuen Subnetz verknüpft. Wenn Sie jedoch versuchen, eine Anforderung von EC2 an den S3-Bucket mit AWS CLI zu senden, schlägt die Anforderung mit 403-Zugriffsverweigerungsfehlern fehl. Was könnte die Ursache für den Ausfall sein?",
+    "answer" : {
+        "A" : "Der AWS S3-Bucket befindet sich in einer anderen Region als Ihre VPC.",
+        "B" : "Ausgehende EC2-Sicherheitsgruppenregeln, die Datenverkehr zur S3-Präfixliste nicht zulassen.",
+        "C" : "Der VPC-Endpunkt verfügt möglicherweise über eine restriktive Richtlinie und enthält nicht den neuen S3-Bucket.",
+        "D" : "Die CORS-Konfiguration des S3-Buckets hat keine EC2-Instances als Ursprung."
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "23",
+    "question" : "Sie haben eine RDS-Instance mit MySQL-Datenbank mit Standardkonfiguration für Ihre File-Sharing-Anwendung gestartet, um alle Transaktionsinformationen zu speichern. Aufgrund der Sicherheitskonformität möchte Ihre Organisation alle Datenbanken und Speicher in der Cloud verschlüsseln. Sie haben sich an Sie gewandt, um diese Aktivität in Ihrer MySQL RDS-Datenbank durchzuführen. Wie können Sie das erreichen?",
+    "answer" : {
+        "A" : "Kopieren Sie den Snapshot aus dem letzten Snapshot Ihrer RDS-Instance, wählen Sie die Verschlüsselung während des Kopiervorgangs aus und stellen Sie eine neue DB-Instance aus dem neu verschlüsselten Snapshot wieder her.",
+        "B" : "Stoppen Sie die RDS-Instance, ändern Sie die Verschlüsselungsoption und wählen Sie sie aus. Starten Sie die RDS-Instance, es kann eine Weile dauern, eine RDS-Instance zu starten, da vorhandene Daten verschlüsselt werden.",
+        "C" : "Erstellen Sie einen Fall beim AWS-Support, um die Verschlüsselung für Ihre RDS-Instance zu aktivieren.        ",
+        "D" : "AWS RDS ist ein verwalteter Service, und die ruhenden Daten in allen RDS-Instances werden standardmäßig verschlüsselt."
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "24",
+    "question" : "Welche der folgenden Optionen ist eine AWS-Komponente, die Ressourcen aus Ihrer VPC verbraucht?",
+    "answer" : {
+        "A" : "Internet-Gateway",
+        "B" : "GAteway-VPC-Endpunkte",  
+        "C" : "Elastic IP-Adressen",
+        "D" : "NAT-Gateway"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "25",
+    "question" : "Sie haben in Ihrem Konto erfolgreich eine VPC-Peering-Verbindung zwischen zwei VPCs – VPC A und VPC B – jeweils in einer anderen Region – eingerichtet. Wenn Sie versuchen, eine Anforderung von VPC A an VPC B zu senden, schlägt die Anforderung fehl. Welcher der folgenden Gründe könnte ein Grund sein?",
+    "answer" : {
+        "A" : "Regionsübergreifendes Peering wird in AWS",
+        "B" : "CIDR-Blöcke beider VPCs überlappen sich möglicherweise.",  
+        "C" : "Routen, die nicht in Routingtabellen für Peering-Verbindungen konfiguriert sind.",
+        "D" : "VPC Eine Standardregel für ausgehenden Datenverkehr einer Sicherheitsgruppe, die keinen Datenverkehr zum IP-Bereich von VPC B zulässt."
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "26",
+    "question" : "Welche der folgenden Aussagen sind wahr in Bezug auf das Zulassen/Verweigern des Datenverkehrs von/zur VPC, vorausgesetzt, die Standardregeln sind nicht in Kraft? (mehrere auswählen)",
+    "answer" : {
+        "A" : "Fügen Sie in einer Netzwerk-ACL für eine erfolgreiche HTTPS-Verbindung eine eingehende Regel mit HTTPS-Typ, IP-Bereich in der Quelle und ALLOW-Datenverkehr hinzu.",
+        "B" : "In einer Netzwerk-ACL müssen Sie für eine erfolgreiche HTTPS-Verbindung eine eingehende Regel und eine ausgehende Regel mit HTTPS-Typ, IP-Bereich in Quelle bzw. Ziel und ALLOW-Datenverkehr hinzufügen.",
+        "C" : "Fügen Sie in einer Sicherheitsgruppe für eine erfolgreiche HTTPS-Verbindung eine eingehende Regel mit HTTPS-Typ und IP-Bereich in der Quelle hinzu.",
+        "D" : "In einer Sicherheitsgruppe müssen Sie für eine erfolgreiche HTTPS-Verbindung eine eingehende Regel und eine ausgehende Regel mit HTTPS-Typ und IP-Bereich in Quelle bzw. Ziel hinzufügen."
+    },
+    "correct_answer" : "B,C"
+},
+{
+    "id" : "27",
+    "question" : "Ein Spieleunternehmen speichert große Mengen (Terabyte bis Petabyte) an Clickstream-Ereignisdaten in seinem zentralen S3-Bucket. Das Unternehmen möchte diese Clickstream-Daten analysieren, um geschäftliche Erkenntnisse zu gewinnen. Amazon Redshift, das sicher in einem privaten Subnetz einer VPC gehostet wird, wird für alle Data-Warehouse-bezogenen und analytischen Lösungen verwendet. Mithilfe von Amazon Redshift möchte das Unternehmen einige Lösungen untersuchen, um komplexe analytische Abfragen für die in S3 gespeicherten Clickstream-Daten sicher auszuführen, ohne die Daten in Redshift zu transformieren/kopieren oder zu laden. Welchen der folgenden AWS-Services würden Sie als Lösungsarchitekt für diese Anforderung empfehlen, da Sie wissen, dass Sicherheit und Kosten zwei Hauptprioritäten für das Unternehmen sind?",
+    "answer" : {
+        "A" : "Erstellen Sie einen VPC-Endpunkt, um eine sichere Verbindung zwischen Amazon Redshift und dem zentralen S3-Bucket herzustellen, und verwenden Sie Amazon Athena, um die Abfrage",
+        "B" : "Verwenden Sie NAT Gateway, um Amazon Redshift mit dem Internet zu verbinden und auf die statische S3-Website zuzugreifen. Verwenden Sie Amazon Redshift Spectrum, um die Abfrage",  
+        "C" : "Erstellen Sie einen VPC-Endpunkt, um eine sichere Verbindung zwischen Amazon Redshift und dem zentralen S3-Bucket herzustellen, und verwenden Sie Amazon Redshift Spectrum, um die Abfrage",
+        "D" : "Erstellen Sie Site-to-Site-VPN, um eine sichere Verbindung zwischen Amazon Redshift und dem zentralen S3-Bucket einzurichten, und verwenden Sie Amazon Redshift Spectrum zum Ausführen der Abfrage"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "28",
+    "question" : "Das Arzneimittelforschungsteam eines Pharmaunternehmens produziert hochsensible Daten und speichert sie in Amazon S3. Das Team möchte erstklassige Sicherheit für seine Daten gewährleisten, während sie in Amazon S3 gespeichert werden. Um eine bessere Kontrolle über die Sicherheit zu haben, möchte das Team seinen eigenen Verschlüsselungsschlüssel verwenden, aber keinen Code für die Datenverschlüsselung und -entschlüsselung verwalten. Außerdem möchte das Team für die Speicherung des geheimen Schlüssels verantwortlich sein. Welche der folgenden Verschlüsselungsarten erfüllt als Lösungsarchitekt die oben genannten Anforderungen?",
+    "answer" : {
+        "A" : "Serverseitige Verschlüsselung mit vom Kunden bereitgestellten Verschlüsselungsschlüsseln (SSE-C).",
+        "B" : "Serverseitige Verschlüsselung mit Amazon S3-Managed Keys (SSE-S3)",
+        "C" : "Serverseitige Verschlüsselung mit KMS-Schlüsseln, die im AWS Key Management Service (SSE-KMS)",
+        "D" : "Schützen Sie die Daten mit clientseitiger Verschlüsselung"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "29",
+    "question" : "Ein Online-Handelsunternehmen speichert eine große Anzahl von Kundendaten (Terabyte bis Petabyte) in Amazon S3. Das Unternehmen möchte aus diesen Daten geschäftliche Erkenntnisse gewinnen. Sie planen, SQL-basierte, komplexe analytische Abfragen für die S3-Daten direkt und sicher auszuführen und zu verarbeiten, um Geschäftseinblicke zu generieren und ein Datenvisualisierungs-Dashboard für die Überprüfung und Entscheidungsfindung von Unternehmen und Management zu erstellen. Sie werden als Solutions Architect eingestellt, um eine kostengünstige und schnelle Lösung für dieses Problem zu finden. Welchen der folgenden AWS-Services würden Sie empfehlen?",
+    "answer" : {
+        "A" : "Verwenden Sie Amazon Redshift Spectrum, um SQL-basierte Abfragen für die in Amazon S3 gespeicherten Daten auszuführen und sie dann an Amazon Kinesis Data Analytics zu verarbeiten, um ein Dashboard zu erstellen.",
+        "B" : "Verwenden Sie Amazon Redshift, um SQL-basierte Abfragen für die in Amazon S3 gespeicherten Daten auszuführen und sie dann auf einem benutzerdefinierten webbasierten Dashboard für die Datenvisualisierung zu verarbeiten.",  
+        "C" : "Verwenden Sie Amazon EMR, um SQL-basierte Abfragen für die in Amazon S3 gespeicherten Daten auszuführen und sie dann zur Datenvisualisierung in Amazon Quicksight zu verarbeiten.",
+        "D" : "Verwenden Sie Amazon Athena, um SQL-basierte Abfragen für die in Amazon S3 gespeicherten Daten auszuführen und sie dann für die Dashboard-Ansicht in Amazon Quicksight zu verarbeiten."
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "30",
+    "question" : "Ein Unternehmen hat alle seine Daten langfristig in Amazon S3 Glacier archiviert. Das Unternehmen muss jedoch regelmäßig einen Teil der archivierten Daten abrufen. Dieser Abrufprozess ist ziemlich zufällig und verursacht eine Menge Kosten für die Organisation. Da die Kosten oberste Priorität haben, möchte die Organisation eine Richtlinie für den Datenabruf festlegen, um Gebühren für den Datenabruf zu vermeiden. Welche der folgenden Abrufrichtlinien passt am besten dazu?",
+    "answer" : {
+        "A" : "Kein Abruflimit",
+        "B" : "Nur kostenloses Kontingent",  
+        "C" : "Maximale Abrufrate",
+        "D" : "Standart-Abruf"
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "31",
+    "question" : "Ein Spieleunternehmen plante, seine neue Spieleanwendung auf den Markt zu bringen, die sowohl auf Web- als auch auf mobilen Plattformen verfügbar sein wird. Das Unternehmen erwägt die Verwendung der GraphQL-API, um Daten aus mehreren Datenbanken, Microservices und mehreren anderen API-Endpunkten sicher über einen einzigen Endpunkt abzufragen oder zu aktualisieren. Sie möchten auch, dass einige Teile der Daten aktualisiert und in Echtzeit abgerufen werden. Der Kunde zieht es vor, diese neue Anwendung hauptsächlich auf serverlosen Komponenten von AWS zu erstellen. Welchen der folgenden AWS-Services würden Sie als Lösungsarchitekt dem Kunden empfehlen, um seine GraphQL-API zu entwickeln?",
+    "answer" : {
+        "A" : "Kinesis Data Firehose",
+        "B" : "Amazonas Neptun",  
+        "C" : "Amazon API Gateway",
+        "D" : "AWS AppSync"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "32",
+    "question" : "Ein Wettervorhersageunternehmen hat die Anforderung, ein leistungsstarkes, hochparalleles POSIX-kompatibles Dateisystem aufzubauen, das Daten über mehrere Netzwerkdateisysteme speichert, um Tausende gleichzeitiger Clients zu bedienen und Millionen von IOPS (Input/Output Operations pro) zu generieren Zweitens) mit einer Latenz von weniger als einer Millisekunde. Um diese Anforderung zu erfüllen, benötigt das Unternehmen einen kostenoptimierten Dateisystemspeicher für kurzfristige, verarbeitungsintensive Workloads, der einen Burst-Durchsatz bieten kann. Welche Art von Dateisystemspeicher passt am besten zum Unternehmen?",
+    "answer" : {
+        "A" : "FSx für Lustre mit dem Bereitstellungstyp 'Scratch File System'",
+        "B" : "FSx für Lustre mit dem Bereitstellungstyp 'Persistente Dateisysteme'",
+        "C" : "Amazon Elastic File System (Amazon EFS)",
+        "D" : "Amazon FSx für Windows File Server"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "33",
+    "question" : "Sie sind Lösungsarchitekt und arbeiten für einen Online-Händler. Ihre Online-Website verwendet REST-API-Aufrufe über API Gateway und Lambda von Ihrem Angular SPA-Frontend, um mit Ihrem DynamoDB-Datenspeicher zu interagieren. Ihre DynamoDB-Tabellen werden für Kundenpräferenzen, Konto- und Produktinformationen verwendet. Wenn Ihr Web-Traffic ansteigt, geben einige Anfragen eine 429-Fehlerantwort zurück. Was könnte der Grund dafür sein, dass Ihre Anfragen eine 429-Antwort zurückgeben?",
+    "answer" : {
+        "A" : "Ihre Lambda-Funktion hat das Parallelitätslimit überschritten.",
+        "B" : "Das DynamoDB-Parallelitätslimit wurde überschritten.",
+        "C" : "Ihr Angular-Dienst konnte keine Verbindung zu Ihrem API Gateway-REST-Endpunkt herstellen.",
+        "D" : "Ihr API Gateway hat das überschritten Steady-State-Anforderungsrate und Burst-Grenzwerte"
+    },
+    "correct_answer" : "A,D"
+},
+{
+    "id" : "34",
+    "question" : "Sie sind Lösungsarchitekt und arbeiten für ein Finanzdienstleistungsunternehmen. Ihr Unternehmen benötigt eine Reaktionszeit mit sehr geringer Latenz für Anfragen über API Gateway und Lambda-Integration in Ihre Wertpapierstammdatenbank. Die in Aurora gespeicherte Wertpapierstammdatenbank enthält Daten zu allen Wertpapieren, mit denen Ihr Unternehmen handelt. Die Daten bestehen aus dem Wertpapierticker, der Handelsbörse, dem Handelspartnerunternehmen für das Wertpapier usw. Da diese Wertpapierdaten relativ statisch sind, können Sie die Leistung Ihres API Gateway-REST-Endpunkts verbessern, indem Sie API Gateway-Caching verwenden. Ihre REST-API fordert, dass die Anforderungstypen für Aktienwertpapiere und die Anforderungstypen für festverzinsliche Wertpapiere separat zwischengespeichert werden. Welche der folgenden Optionen ist die effizienteste Möglichkeit, Ihre Cache-Antworten mithilfe des API-Gateway-Caching nach Anforderungstyp zu trennen? ",
+    "answer" : {
+        "A" : "Nutzlastkomprimierung",
+        "B" : "Benutzerdefinierter Domänenname",  
+        "C" : "API-Stufe",
+        "D" : "Abfrage-Zeichenfolge"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "35",
+    "question" : "Sie sind ein Lösungsarchitekt, der für einen Gesundheitsdienstleister arbeitet. Ihr Unternehmen verwendet REST-APIs, um kritische Patientendaten für interne Front-End-Systeme verfügbar zu machen, die von Ärzten und Krankenschwestern verwendet werden. Die Daten für Ihre Patienteninformation werden in Aurora gespeichert. Wie können Sie sicherstellen, dass nur Ihre autorisierten internen Benutzer auf Ihren REST-Endpunkt für Patientendaten zugreifen?",
+    "answer" : {
+        "A" : "Führen Sie Ihren Aurora-DB-Cluster auf einer EC2-Instance in einem privaten Subnetz aus",
+        "B" : "Verwenden Sie einen Gateway-VPC-Endpunkt, um Ihren REST-Endpunkt privat und nur innerhalb Ihrer VPC zugänglich zu machen.",
+        "C" : "Verwenden Sie IAM-Ressourcenrichtlinien, um den Zugriff auf Ihre REST-APIs einzuschränken, indem Sie der API Gateway-Ressourcenrichtlinie der aws:Sourcevpce-Bedingung hinzufügen.",
+        "D" : "Verwenden Sie einen Schnittstellen-VPC-Endpunkt, um Ihren REST-Endpunkt privat und nur innerhalb Ihrer VPC und über Ihren VPC-Endpunkt zugänglich zu machen. "
+    },
+    "correct_answer" : "C,D"
+},
+{
+    "id" : "36",
+    "question" : "Sie sind ein Lösungsarchitekt, der für ein Datenanalyseunternehmen arbeitet, das Analysedaten an Politiker liefert, die die Daten für die Verwaltung ihrer Kampagnen benötigen. Politische Kampagnen nutzen die Analysedaten Ihres Unternehmens, um zu entscheiden, wofür sie ihr Wahlkampfgeld ausgeben möchten, um die besten Ergebnisse für die Bemühungen zu erzielen. Ihre Benutzer für politische Kampagnen greifen über eine Angular SPA über API Gateway-REST-Endpunkte auf Ihre Analysedaten zu. Sie müssen den Zugriff und die Nutzung Ihrer Analyseplattform verwalten, um sicherzustellen, dass die einzelnen Kampagnendaten getrennt sind. Insbesondere müssen Sie Protokolle aller Benutzeranforderungen und Antworten auf diese Anforderungen erstellen, einschließlich Anforderungsnutzlasten, Antwortnutzlasten und Fehlerablaufverfolgungen. Welche Art von AWS-Protokollierungsservice sollten Sie verwenden, um Ihre Ziele zu erreichen?",
+    "answer" : {
+        "A" : "Verwenden Sie die CloudWatch-Zugriffsprotokollierung",
+        "B" : "Verwenden Sie die CloudWatch-Ausführungsprotokollierung",
+        "C" : "Verwenden Sie die CloudTrail-Protokollierung",
+        "D" : "Verwenden der CloudTrail-Ausführungsprotokollierung"
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "37",
+    "question" : "Sie sind ein Lösungsarchitekt, der für ein Social-Media-Unternehmen arbeitet, das einen Ort für zivile Diskussionen über politische und nachrichtenbezogene Ereignisse bietet. Aufgrund der sich ständig ändernden regulatorischen Anforderungen und Einschränkungen für Social-Media-Apps, die diese Dienste bereitstellen, müssen Sie Ihre App in einer Umgebung erstellen, in der Sie Ihre Implementierung sofort ändern können, ohne den Code aktualisieren zu müssen. Sie haben sich dafür entschieden, die REST-API-Endpunkte, die vom Benutzeroberflächencode Ihrer Social-Media-App verwendet werden, mit Lambda zu erstellen. Wie können Sie Ihre Lambda-Funktionen sicher konfigurieren, ohne den Code zu aktualisieren?",
+    "answer" : {
+        "A" : "Übergeben Sie Umgebungsvariablen über den Anforderungsheader, der an Ihre API Gateway-Methoden gesendet wird, an Ihre Lambda-Funktion.",
+        "B" : "Konfigurieren Sie Ihre Lambda-Funktionen so, dass sie die Schlüsselkonfiguration verwenden.",  
+        "C" : "Verwenden Sie Verschlüsselungshelfer",
+        "D" : "Verwenden Sie Lambda-Layer"
+    },
+    "correct_answer" : "B,C"
+},
+{
+    "id" : "38",
+    "question" : "Sie sind Lösungsarchitekt und arbeiten für ein Medienunternehmen, das Bilder und Videos zum Verkauf über eine mobile App und Website produziert. Ihre App und Website ermöglichen Benutzern nur den Zugriff auf die von ihnen gekauften Bestandsinhalte. Ihre Inhalte werden in S3-Buckets gespeichert. Sie müssen den Zugriff auf mehrere Dateien beschränken, die Ihre Benutzer gekauft haben. Aufgrund der Art des Bestandsinhalts (der von mehreren Benutzern erworben werden kann) möchten Sie außerdem nicht die URLs der einzelnen Bestandsartikel ändern. Welche Zugangskontrolloption passt am besten zu Ihrem Szenario? ",
+    "answer" : {
+        "A" : "Verwenden Sie von CloudFront signierte URLs.",
+        "B" : "Verwenden Sie vorsignierte S3-URLs",  
+        "C" : "Verwenden Sie von CloudFront signierte Cookies",
+        "D" : "Verwenden Sie von S3 signierte Cookies"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "39",
+    "question" : "Ein Unternehmen entwickelt eine Webanwendung, die in AWS gehostet werden soll. Diese Anwendung benötigt einen Datenspeicher für Sitzungsdaten.  Was würden Sie als AWS Solution Architect als ideale Option zum Speichern von Sitzungsdaten empfehlen?",
+    "answer" : {
+        "A" : "CloudWatch",
+        "B" : "DynamoDB",  
+        "C" : "Elastic Load Balancing",
+        "D" : "ElastiCache"
+    },
+    "correct_answer" : "B,D"
+},
+{
+    "id" : "40",
+    "question" : "Sie erstellen eine neue Architektur für ein Finanzunternehmen. Die Architektur besteht aus einigen EC2-Instanzen mit demselben Typ und derselben Größe (M5.large). In dieser Architektur kommunizieren hauptsächlich alle EC2 miteinander. Geschäftsleute haben Sie gebeten, bei der Entwicklung dieser Architektur eine niedrige Latenz als Priorität zu berücksichtigen. Welche Platzierungsgruppenoption könnten Sie für die Instanzen vorschlagen?",
+    "answer" : {
+        "A" : "Partitionsplatzierungsgruppe",
+        "B" : "Clustered-Platzierungsgruppe",  
+        "C" : "Spread-Platzierungsgruppe",
+        "D" : "Enhanced Networking Placement-Gruppe"
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "41",
+    "question" : "Ihr Team entwickelt eine High-Performance-Computing-Anwendung (HPC). Die Anwendung löst komplexe, rechenintensive Probleme und benötigt ein leistungsstarkes Lustre-Dateisystem mit geringer Latenz. Sie müssen dieses Dateisystem kostengünstig in AWS konfigurieren. Welche Methode ist am besten geeignet?",
+    "answer" : {
+        "A" : "Erstellen Sie ein Lustre-Dateisystem über Amazon FSx",
+        "B" : "Starten Sie ein hochleistungsfähiges Lustre-Dateisystem in Amazon EBS.",  
+        "C" : "Erstellen Sie einen Hochgeschwindigkeits-Volume-Cluster in der EC2-Platzierungsgruppe.",
+        "D" : "Starten Sie das Lustre-Dateisystem über AWS Marketplace"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "42",
+    "question" : "Ein Unternehmen verfügt über eine in AWS gehostete Anwendung. Diese Anwendung besteht aus EC2-Instanzen, die sich hinter einem ELB befinden. Aus administrativer Sicht gelten folgende Anforderungen: a) Stellen Sie sicher, dass Benachrichtigungen gesendet werden, wenn die Leseanforderungen 1000 Anforderungen pro Minute überschreiten. b) Stellen Sie sicher, dass Benachrichtigungen gesendet werden, wenn die Latenz 10 Sekunden überschreitet. c) Überwachen Sie alle AWS-API-Anfrageaktivitäten auf den AWS-Ressourcen. Mit welchen Mitteln können diese Anforderungen erfüllt werden?",
+    "answer" : {
+        "A" : "Verwenden Sie CloudTrail, um die API-Aktivität zu überwachen.",
+        "B" : "Verwenden Sie CloudWatch Logs, um die API-Aktivität zu überwachen.",  
+        "C" : "Verwenden Sie CloudWatch Metrics für die Metriken, die gemäß den Anforderungen überwacht werden müssen, und richten Sie eine Alarmaktivität ein, um Benachrichtigungen zu versenden, wenn die Metrik erreicht wird den festgelegten Schwellenwert",
+        "D" : "Verwenden Sie benutzerdefinierte Protokollsoftware, um die Latenz zu überwachen und Anforderungen an den ELB zu lesen"
+    },
+    "correct_answer" : "A,C"
+},
+{
+    "id" : "43",
+    "question" : "Sie erstellen mehrere EC2-Instanzen für eine neue Anwendung. Die Instanzen müssen miteinander kommunizieren. Für eine bessere Leistung der Anwendung sind für die EC2-Instanzen sowohl eine niedrige Netzwerklatenz als auch ein hoher Netzwerkdurchsatz erforderlich. Alle Instanzen sollten in einer einzigen Verfügbarkeitszone gestartet werden. Wie würden Sie das konfigurieren?",
+    "answer" : {
+        "A" : "Alle EC2-Instanzen in einer Platzierungsgruppe mit einer Cluster-Platzierungsstrategie starten.",
+        "B" : "Beim Starten der EC2-Instanzen automatisch eine öffentliche IP zuweisen.",  
+        "C" : "EC2-Instanzen in einer EC2-Platzierungsgruppe starten und die Platzierungsstrategie „Spread“ auswählen.",
+        "D" : "Beim Starten der EC2-Instanzen , wählen Sie einen Instanztyp aus, der erweitertes Netzwerk unterstützt"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "44",
+    "question" : "Sie sind Lösungsarchitekt und arbeiten für eine Regionalbank, die ihr Rechenzentrum in die AWS-Cloud verlagert. Sie müssen Ihren Rechenzentrumsspeicher auf einen neuen S3- und EFS-Datenspeicher in AWS migrieren. Da Ihre Daten personenbezogene Daten (PII) enthalten, wurden Sie gebeten, Daten von Ihrem Rechenzentrum an AWS zu übertragen, ohne über das öffentliche Internet zu reisen. Welche Option bietet Ihnen die effizienteste Lösung, die Ihren Anforderungen entspricht?",
+    "answer" : {
+        "A" : "Migrieren Sie Ihre lokalen Daten mithilfe des DataSync-Agenten und NAT-Gateway zu AWS.",
+        "B" : "Erstellen Sie einen öffentlichen VPC-Endpunkt und konfigurieren Sie den DataSync-Agenten für die Kommunikation mit den öffentlichen DataSync-Service-Endpunkten über den VPC-Endpunkt mithilfe von Direct Connect.",  
+        "C" : "Migrieren Sie Ihren On-Premise-Server -prem-Daten an AWS mithilfe des DataSync-Agenten über Internet Gateway",
+        "D" : "Erstellen Sie einen privaten VPC-Endpunkt und konfigurieren Sie den DataSync-Agenten für die Kommunikation mit den privaten DataSync-Dienstendpunkten über den VPC-Endpunkt mithilfe von VPN"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "45",
+    "question" : "Ihre EC2-Instanzen laufen derzeit in mehreren Verfügbarkeitszonen in einer AWS-Region. Sie müssen NAT-Gateways erstellen, damit Ihre privaten Instanzen auf das Internet zugreifen können. Wie würden Sie die NAT-Gateways so einrichten, dass sie hochverfügbar sind?",
+    "answer" : {
+        "A" : "Erstellen Sie zwei NAT-Gateways und platzieren Sie sie hinter einem ELB",
+        "B" : "Erstellen Sie ein NAT-Gateway in jeder Availability Zone.",  
+        "C" : "Erstellen Sie ein NAT-Gateway in einer anderen Region",
+        "D" : "Verwenden Sie Auto Scaling-Gruppen, um die NAT-Gateways zu skalieren"
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "46",
+    "question" : "Ihr Unternehmen hat eine App entworfen und benötigt sie, um Daten in DynamoDB zu speichern. Das Unternehmen hat die App bei Identitätsanbietern registriert, damit sich Benutzer mit Drittanbietern wie Google und Facebook anmelden können. Was muss vorhanden sein, damit die Anwendung temporäre Anmeldeinformationen für den Zugriff auf DynamoDB erhalten kann?",
+    "answer" : {
+        "A" : "Für den Zugriff auf DynamoDB muss die Multi-Faktor-Authentifizierung verwendet werden.",
+        "B" : "AWS CloudTrail muss aktiviert sein, um die Nutzung zu überwachen.",  
+        "C" : "Eine IAM-Rolle, die der App den Zugriff auf DynamoDB ermöglicht.",
+        "D" : "Der Benutzer muss sich zusätzlich bei der AWS-Konsole anmelden, um Zugriff auf die Datenbank zu erhalten"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "47",
+    "question" : "Ein Unternehmen verfügt über viele Daten, die in seiner On-Premises-Infrastruktur gehostet werden. Da der Speicherplatz knapp wird, möchte das Unternehmen eine Quick-Win-Lösung mit AWS. Es sollte eine geringe Latenz für die Daten geben, auf die häufig zugegriffen wird. Welche der folgenden Optionen würde eine einfache Erweiterung ihrer Dateninfrastruktur auf AWS ermöglichen?",
+    "answer" : {
+        "A" : "Das Unternehmen könnte mit der Verwendung von Gateway Cached Volumes beginnen.",
+        "B" : "Das Unternehmen könnte mit der Verwendung von Gateway Stored Volumes beginnen.",  
+        "C" : "Das Unternehmen könnte damit beginnen, die Amazon S3 Glacier Deep Archive-Speicherklasse zu verwenden.",
+        "D" : "Das Unternehmen könnte mit der Verwendung von Amazon S3 Glacier beginnen"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "48",
+    "question" : "Ein Medienunternehmen speichert alle seine alten Videos im S3 Glacier Deep Archive. Aufgrund des Mangels an neuem Videomaterial hat der Kanal beschlossen, all diese alten Videos wiederzuverwenden. Da es sich um alte Videos handelt, ist sich der Kanal nicht sicher, ob sie beliebt sind und von den Nutzern angenommen werden. Channel Head möchte sicherstellen, dass diese riesigen Dateien ihr Budget nicht in die Höhe schießen. Zu diesem Zweck raten Sie als AWS-Berater dazu, die intelligente Speicherklasse S3 zu verwenden. Das Betriebsteam ist besorgt über das Verschieben dieser Dateien in die Speicherklasse S3 Intelligent-Tiering. Welche der folgenden Aktionen kann ausgeführt werden, um Objekte in Amazon S3 Glacier Deep Archive in die S3 Intelligent-Tiering-Speicherklasse zu verschieben?",
+    "answer" : {
+        "A" : " Verwenden Sie Amazon S3 Console, um diese Objekte aus S3 Glacier Deep Archive in die erforderliche S3 Intelligent-Tiering-Speicherklasse zu kopieren.",
+        "B" : "Verwenden Sie Amazon S3 Glacier Console, um Objekte aus S3 Glacier Deep Archive wiederherzustellen und diese Objekte dann in die erforderliche S3 Intelligent-Tiering-Speicherklasse zu kopieren.",  
+        "C" : "Verwenden Sie die Amazon S3-Konsole, um Objekte aus S3 Glacier Deep Archive wiederherzustellen, und kopieren Sie diese Objekte dann in die erforderliche S3 Intelligent-Tiering-Speicherklasse",
+        "D" : "Verwenden Sie die Amazon S3 Glacier-Konsole, um diese Objekte in die erforderliche S3 Intelligent-Tiering-Speicherklasse zu kopieren"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "49",
+    "question" : "Ein Start-up-Unternehmen hat eine Unternehmenszentrale in New York und ein Regionalbüro in Washington und Chicago. Diese Büros sind über Internetverbindungen miteinander verbunden. Kürzlich haben sie einige Anwendungsserver auf EC2-Instances migriert, die in der AWS-Region US-east-1 gestartet wurden. Das Entwicklerteam in der Unternehmenszentrale benötigt einen sicheren Zugriff auf diese Server für erste Tests und Leistungsprüfungen, bevor die neue Anwendung live geht. Da der Go-Live-Termin näher rückt, sucht das IT-Team nach einer schnellen Verbindung, die hergestellt werden kann. Welche Link-Option schlagen Sie als AWS-Berater als kostengünstige und schnelle Möglichkeit vor, eine sichere Konnektivität von On-Premise zu Servern herzustellen, die in AWS gestartet werden?",
+    "answer" : {
+        "A" : "Verwenden Sie AWS Direct Connect, um IPSEC-Konnektivität von On-Premise zu VGW herzustellen",
+        "B" : "Installieren Sie eine Software-VPN-Appliance eines Drittanbieters aus AWS Marketplace in der EC2-Instance, um eine VPN-Verbindung zum lokalen Netzwerk herzustellen.",
+        "C" : "Verwenden Sie Hardware-VPN über AWS Direct Connect, um IPSEC-Konnektivität von On-Premise zu VGW herzustellen.",
+        "D" : "Verwenden Sie AWS Site-to-Site VPN, um eine IPSEC-VPN-Verbindung zwischen VPC und dem lokalen Netzwerk herzustellen"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "50",
+    "question" : "Eine große Menge strukturierter Daten wird in Amazon S3 im JSON-Format gespeichert. Sie müssen einen Dienst verwenden, um die S3-Daten direkt mit Standard-SQL zu analysieren. In der Zwischenzeit sollten die Daten durch Daten-Dashboards einfach visualisiert werden können. Welche der folgenden Dienstleistungen ist die am besten geeignete?",
+    "answer" : {
+        "A" : "Amazon Athena und Amazon QuickSight",
+        "B" : "AWS Glue und Amazon Athena",  
+        "C" : "AWS Glue und Amazon QuickSight",
+        "D" : "Amazon Kinesis Data Stream und Amazon QuickSight"
+    },
+    "correct_answer" : "A"
+}]
