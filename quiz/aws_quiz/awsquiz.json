@@ -110,14 +110,14 @@
 },
 {
     "id" : "10",
-    "question" : "Welche der folgenden Aussagen treffen in Bezug auf VPC zu? (mehrere auswählen)",
+    "question" : "Welche der folgenden Aussagen treffen in Bezug auf VPC zu?",
     "answer" : {
         "A" : "Einem Subnetz können mehrere Routingtabellen zugeordnet sein.",
-        "B" : "Eine Netzwerk-ACL kann mehreren Subnetzen zugeordnet werden.",  
+        "B" : "Eine Netzwerk-ACL kann nicht mehreren Subnetzen zugeordnet werden.",  
         "C" : "Eine Route mit dem Ziel 'local' in der Routing-Tabelle kann bearbeitet werden, um den Datenverkehr innerhalb der VPC einzuschränken.",
         "D" : "Der IP-CIDR-Block des Subnetzes kann mit dem VPC-CIDR-Block identisch sein."
     },
-    "correct_answer" : "B,D"
+    "correct_answer" : "D"
 },
 {
     "id" : "11",
@@ -154,14 +154,14 @@
 },
 {
     "id" : "14",
-    "question" : "Sie starten und beenden EC2-Instances je nach Bedarf für Ihre Workloads. Sie müssen einige Shell-Skripte ausführen und bestimmte Überprüfungen durchführen, um eine Verbindung zum AWS S3-Bucket herzustellen, wenn die Instance gestartet wird. Mit welcher der folgenden Optionen können Sie während des Starts Aufgaben ausführen? (mehrere auswählen)",
+    "question" : "Sie starten und beenden EC2-Instances je nach Bedarf für Ihre Workloads. Sie müssen einige Shell-Skripte ausführen und bestimmte Überprüfungen durchführen, um eine Verbindung zum AWS S3-Bucket herzustellen, wenn die Instance gestartet wird. Mit welcher der folgenden Optionen können Sie während des Starts Aufgaben ausführen?",
     "answer" : {
-        "A" : "Verwenden Sie Instanzbenutzerdaten für Shell-Skripte.",
+        "A" : "Verwenden Sie Instanzen für Shell-Skripte.",
         "B" : "Verwenden Sie Instanzmetadaten für Shell-Skripte.",  
         "C" : "Verwenden Sie AutoScaling-Gruppen-Lebenszyklus-Hooks und lösen Sie die AWS Lambda-Funktion über CloudWatch-Ereignisse aus.",
         "D" : "Verwenden Sie Platzierungsgruppen und legen Sie den Status 'InstanceLaunch' fest, um AWS Lambda-Funktionen auszulösen."
     },
-    "correct_answer" : "A,C"
+    "correct_answer" : "C"
 },
 {
     "id" : "15",
@@ -198,14 +198,14 @@
 },
 {
     "id" : "18",
-    "question" : "Welche der folgenden Lösungen werden nicht von AWS bereitgestellt? (mehrere auswählen)",
+    "question" : "Welche der folgenden Lösungen werden nicht von AWS bereitgestellt?",
     "answer" : {
-        "A" : "AWS Elastic Block Store B. AWS Storage Gateway",
+        "A" : "AWS Elastic Block Store",
         "B" : "AWS Elastic Beanstalk",  
         "C" : "AWS Database Migration Hub",
-        "D" : "AWS CloudFormation"
+        "D" : "AWS Storage Gateway"
     },
-    "correct_answer" : "C,E"
+    "correct_answer" : "C"
 },
 {
     "id" : "19",
@@ -286,14 +286,14 @@
 },
 {
     "id" : "26",
-    "question" : "Welche der folgenden Aussagen sind wahr in Bezug auf das Zulassen/Verweigern des Datenverkehrs von/zur VPC, vorausgesetzt, die Standardregeln sind nicht in Kraft? (mehrere auswählen)",
+    "question" : "Welche der folgenden Aussagen sind wahr in Bezug auf das Zulassen/Verweigern des Datenverkehrs von/zur VPC, vorausgesetzt, die Standardregeln sind nicht in Kraft?",
     "answer" : {
         "A" : "Fügen Sie in einer Netzwerk-ACL für eine erfolgreiche HTTPS-Verbindung eine eingehende Regel mit HTTPS-Typ, IP-Bereich in der Quelle und ALLOW-Datenverkehr hinzu.",
-        "B" : "In einer Netzwerk-ACL müssen Sie für eine erfolgreiche HTTPS-Verbindung eine eingehende Regel und eine ausgehende Regel mit HTTPS-Typ, IP-Bereich in Quelle bzw. Ziel und ALLOW-Datenverkehr hinzufügen.",
+        "B" : "Erstellen Sie eine VPC Regel um die HTTPS-Verbindung einzuschränken.",
         "C" : "Fügen Sie in einer Sicherheitsgruppe für eine erfolgreiche HTTPS-Verbindung eine eingehende Regel mit HTTPS-Typ und IP-Bereich in der Quelle hinzu.",
         "D" : "In einer Sicherheitsgruppe müssen Sie für eine erfolgreiche HTTPS-Verbindung eine eingehende Regel und eine ausgehende Regel mit HTTPS-Typ und IP-Bereich in Quelle bzw. Ziel hinzufügen."
     },
-    "correct_answer" : "B,C"
+    "correct_answer" : "C"
 },
 {
     "id" : "27",
@@ -368,9 +368,9 @@
         "A" : "Ihre Lambda-Funktion hat das Parallelitätslimit überschritten.",
         "B" : "Das DynamoDB-Parallelitätslimit wurde überschritten.",
         "C" : "Ihr Angular-Dienst konnte keine Verbindung zu Ihrem API Gateway-REST-Endpunkt herstellen.",
-        "D" : "Ihr API Gateway hat das überschritten Steady-State-Anforderungsrate und Burst-Grenzwerte"
+        "D" : "Ihr API Gateway ist nicht vorhanden."
     },
-    "correct_answer" : "A,D"
+    "correct_answer" : "A"
 },
 {
     "id" : "34",
@@ -390,9 +390,9 @@
         "A" : "Führen Sie Ihren Aurora-DB-Cluster auf einer EC2-Instance in einem privaten Subnetz aus",
         "B" : "Verwenden Sie einen Gateway-VPC-Endpunkt, um Ihren REST-Endpunkt privat und nur innerhalb Ihrer VPC zugänglich zu machen.",
         "C" : "Verwenden Sie IAM-Ressourcenrichtlinien, um den Zugriff auf Ihre REST-APIs einzuschränken, indem Sie der API Gateway-Ressourcenrichtlinie der aws:Sourcevpce-Bedingung hinzufügen.",
-        "D" : "Verwenden Sie einen Schnittstellen-VPC-Endpunkt, um Ihren REST-Endpunkt privat und nur innerhalb Ihrer VPC und über Ihren VPC-Endpunkt zugänglich zu machen. "
+        "D" : "Teilen Sie ihre Benutzerdaten und Passwort mit anderen Mitarbeitern."
     },
-    "correct_answer" : "C,D"
+    "correct_answer" : "C"
 },
 {
     "id" : "36",
@@ -411,10 +411,10 @@
     "answer" : {
         "A" : "Übergeben Sie Umgebungsvariablen über den Anforderungsheader, der an Ihre API Gateway-Methoden gesendet wird, an Ihre Lambda-Funktion.",
         "B" : "Konfigurieren Sie Ihre Lambda-Funktionen so, dass sie die Schlüsselkonfiguration verwenden.",  
-        "C" : "Verwenden Sie Verschlüsselungshelfer",
+        "C" : "Verwenden Sie ElastiCache",
         "D" : "Verwenden Sie Lambda-Layer"
     },
-    "correct_answer" : "B,C"
+    "correct_answer" : "B"
 },
 {
     "id" : "38",
@@ -434,9 +434,9 @@
         "A" : "CloudWatch",
         "B" : "DynamoDB",  
         "C" : "Elastic Load Balancing",
-        "D" : "ElastiCache"
+        "D" : "CloudTrail"
     },
-    "correct_answer" : "B,D"
+    "correct_answer" : "B"
 },
 {
     "id" : "40",
@@ -464,12 +464,12 @@
     "id" : "42",
     "question" : "Ein Unternehmen verfügt über eine in AWS gehostete Anwendung. Diese Anwendung besteht aus EC2-Instanzen, die sich hinter einem ELB befinden. Aus administrativer Sicht gelten folgende Anforderungen: a) Stellen Sie sicher, dass Benachrichtigungen gesendet werden, wenn die Leseanforderungen 1000 Anforderungen pro Minute überschreiten. b) Stellen Sie sicher, dass Benachrichtigungen gesendet werden, wenn die Latenz 10 Sekunden überschreitet. c) Überwachen Sie alle AWS-API-Anfrageaktivitäten auf den AWS-Ressourcen. Mit welchen Mitteln können diese Anforderungen erfüllt werden?",
     "answer" : {
-        "A" : "Verwenden Sie CloudTrail, um die API-Aktivität zu überwachen.",
+        "A" : "Verwenden Sie CloudWatch, um die API-Aktivität zu überwachen.",
         "B" : "Verwenden Sie CloudWatch Logs, um die API-Aktivität zu überwachen.",  
         "C" : "Verwenden Sie CloudWatch Metrics für die Metriken, die gemäß den Anforderungen überwacht werden müssen, und richten Sie eine Alarmaktivität ein, um Benachrichtigungen zu versenden, wenn die Metrik erreicht wird den festgelegten Schwellenwert",
         "D" : "Verwenden Sie benutzerdefinierte Protokollsoftware, um die Latenz zu überwachen und Anforderungen an den ELB zu lesen"
     },
-    "correct_answer" : "A,C"
+    "correct_answer" : "C"
 },
 {
     "id" : "43",

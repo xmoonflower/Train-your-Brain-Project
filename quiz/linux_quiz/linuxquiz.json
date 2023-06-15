@@ -33,14 +33,14 @@
 },
 {
     "id" : "3",
-    "question" : "Welche der folgenden Befehle sind korrekt, um das aktuelle Verzeichnis in das Home-Verzeichnis des Benutzers zu ändern? (Wählen Sie ZWEI Antworten)",
+    "question" : "Welche der folgenden Befehle sind korrekt, um das aktuelle Verzeichnis in das Home-Verzeichnis des Benutzers zu ändern?",
     "answer" : {
         "A" : "cd~",
         "B" : "cd..",  
-        "C" : "cd",
+        "C" : "cd#",
         "D" : "cd/"
     },
-    "correct_answer" : "A,C"
+    "correct_answer" : "A"
 },{
     "id" : "4",
     "question" : "Welche der folgenden Dateien enthält die Definition der lokalen Benutzerkonten?",
@@ -54,14 +54,14 @@
 },
 {
     "id" : "5",
-    "question" : "Welche Aussage über das Verzeichnis /etc/skel ist richtig? (Wählen Sie zwei Antworten)",
+    "question" : "Welche Aussage über das Verzeichnis /etc/skel ist richtig?",
     "answer" : {
         "A" : "Die persönlichen Einstellungen von root befinden sich in diesem Verzeichnis",
         "B" : "Die Dateien aus dem Verzeichnis werden beim Start des Systems in das Home-Verzeichnis des neuen Benutzers kopiert",  
-        "C" : "Die Dateien aus dem Verzeichnis werden beim Erstellen des Kontos in das Home-Verzeichnis des neuen Benutzers kopiert",
+        "C" : "Keine der Antworten ist richtig.",
         "D" : "Das Verzeichnis enthält einen Standardsatz von Konfigurationsdateien, die vom Befehl useradd verwendet werden"
     },
-    "correct_answer" : "B,C"
+    "correct_answer" : "B"
 },
 {
     "id" : "6",
@@ -462,12 +462,12 @@
     "id" : "42",
     "question" : "Welcher Befehl wird verwendet, um den Inhalt einer Datei zu bearbeiten?",
     "answer" : {
-        "A" : "vi",
+        "A" : "edit",
         "B" : "nano",  
         "C" : "emacs",
         "D" : "modify"
     },
-    "correct_answer" : "A,B"
+    "correct_answer" : "B"
 },
 {
     "id" : "43",
