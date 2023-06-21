@@ -19,14 +19,22 @@ Start the quiz software by running the node server.js command in the terminal or
 Use of the Software
 Open the web browser and navigate to the URL http://localhost:3000. You see the homepage of the quiz software. Here users can create, share and delete new questions and play quizzes. Click on "Make Quiz" to add a new question. Choose 4 possible answers and confirm the correct answer. Click "Enter Quiz" to play a game, you can choose between Linux and Solution Architect. Click on “Play my Quiz” to play your own questions. Answer the questions in the quiz game and see your score at the end.
 
-#Routes
+# Routes
 
 http://localhost:3000/registration
+
 http://localhost:3000/startseite
+
 http://localhost:3000/play1
+
 http://localhost:3000/play2
+
 http://localhost:3000/make-quiz
+
 http://localhost:3000/frageliste
+
 http://localhost:3000/scoreboard
+
 http://localhost:3000/scoreboard-aws
+
 http://localhost:3000/scoreboard-linux
