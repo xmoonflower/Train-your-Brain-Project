@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Train your brain - Quiz</title>
+</head>
+<body>
+  <header>
+    <h1>Train your brain - Quiz</h1>
+    <div class="profile-name"></div>
+  </header>
+  <div class="quiz-container">
+    <div class="question">
+      <h2>Quizfrage:</h2>
+      <p id="questionText">Hier steht die Frage.</p>
+    </div>
+    <div class="answers-container">
+      <div class="answer">
+        <input type="radio" name="answer" id="option1" value="A">
+        <label for="option1" id="label1">Option 1</label>
+      </div>
+      <div class="answer">
+        <input type="radio" name="answer" id="option2" value="B">
+        <label for="option2" id="label2">Option 2</label>
+      </div>
+      <div class="answer">
+        <input type="radio" name="answer" id="option3" value="C">
+        <label for="option3" id="label3">Option 3</label>
+      </div>
+      <div class="answer">
+        <input type="radio" name="answer" id="option4" value="D">
+        <label for="option4" id="label4">Option 4</label>
+      </div>
+    </div>
+    <div class="score">
+      <h3>Punktestand:</h3>
+      <p id="score">0</p>
+    </div>
+    <div class="buttons">
+      <button onclick="checkAnswer()">Antwort überprüfen</button>
+      <button onclick="nextQuestion()">Weiter</button>
+      <button onclick="goBack()">Zurück</button>
+      <!-- Neuer Button für die Startseite -->
+      <button onclick="window.location.href='/startseite'">Startseite</button>
+    </div><br>
+    <div class="buttons">
+    <!-- Neuer Button für das Scoreboard -->
+    <button onclick="window.location.href='/scoreboard-aws'">Scoreboard</button>
+    <button onclick="goToStartPage()">Quiz zurücksetzen</button>
+    <button onclick="shuffleQuestions()">Fragen mischen</button>
+    </div>
+  </div>
+</div>
+  <div class="popup" id="correctPopup">
+    <div class="popup-content">
+      <h2 class="popup-title">Korrekt!</h2>
+      <p class="popup-message">Deine Antwort ist richtig.</p>
+      <button class="popup-button" onclick="closePopup()">OK</button>
+    </div>
+  </div>
+  <div class="popup" id="wrongPopup">
+    <div class="popup-content">
+      <h2 class="popup-title">Sorry...</h2>
+      <p class="popup-message">Deine Antwort ist falsch. Die richtige Antwort lautet:</p>
+      <p id="correctAnswer" style="font-weight: bold;"></p>
+      <button class="popup-button" onclick="closePopup()">OK</button>
+    </div>
+  </div>
+  <script>
+    // Erhalte das Profilnamen-Element
+    const profileNameElement = document.querySelector('.profile-name');
+  
+    // Überprüfe, ob das `username`-Cookie vorhanden ist
+    if (document.cookie.includes('username')) {
+      // Extrahiere den Wert des `username`-Cookies
+      const username = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('username='))
+        .split('=')[1];
+  
+      // Setze den Profilnamen im HTML-Element
+      profileNameElement.textContent = username;
+    }
+  
+    var currentQuestionIndex = 0;
+    var score = 0;
+    var questions = [];
+  
+    function displayQuestion() {
+      var questionTextElement = document.getElementById('questionText');
+      questionTextElement.innerText = questions[currentQuestionIndex].question;
+  
+      var label1 = document.getElementById('label1');
+      var label2 = document.getElementById('label2');
+      var label3 = document.getElementById('label3');
+      var label4 = document.getElementById('label4');
+  
+      label1.innerText = questions[currentQuestionIndex].answer.A;
+      label2.innerText = questions[currentQuestionIndex].answer.B;
+      label3.innerText = questions[currentQuestionIndex].answer.C;
+      label4.innerText = questions[currentQuestionIndex].answer.D;
+  
+      document.getElementById('option1').checked = false;
+      document.getElementById('option2').checked = false;
+      document.getElementById('option3').checked = false;
+      document.getElementById('option4').checked = false;
+  
+      displayScore();
+    }
+  
+    function getQuestions() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/frage', true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            questions = JSON.parse(xhr.responseText);
+            displayQuestion();
+          } else {
+            console.error('Fehler beim Abrufen der Fragen.');
+          }
+        }
+      };
+      xhr.send();
+    }
+  
+    function checkAnswer() {
+      var selectedOption = document.querySelector('input[name="answer"]:checked');
+  
+      if (selectedOption !== null) {
+        var selectedValue = selectedOption.value;
+        var correctAnswer = questions[currentQuestionIndex].correct_answer;
+  
+        if (correctAnswer.includes(selectedValue)) {
+          score++;
+          displayPopup('correct');
+        } else {
+          displayPopup('wrong');
+          var correctAnswerElement = document.getElementById('correctAnswer');
+          var correctOptions = questions[currentQuestionIndex].correct_answer;
+          var correctOptionsText = correctOptions
+            .map(option => questions[currentQuestionIndex].answer[option])
+            .join(', ');
+          correctAnswerElement.innerText = correctOptionsText;
+        }
+  
+        displayScore();
+      }
+    }
+  
+    function displayScore() {
+      var scoreElement = document.getElementById('score');
+      scoreElement.innerText = 'Punktestand: ' + score;
+    }
+  
+    function goToStartPage() {
+      currentQuestionIndex = 0;
+      score = 0;
+      displayQuestion();
+    }
+  
+    function goBack() {
+      currentQuestionIndex--;
+  
+      if (currentQuestionIndex < 0) {
+        currentQuestionIndex = questions.length - 1;
+      }
+  
+      displayQuestion();
+    }
+  
+    function shuffleQuestions() {
+      questions = shuffleArray(questions);
+      displayQuestion();
+    }
+  
+    function shuffleArray(array) {
+      var currentIndex = array.length,
+        randomIndex;
+  
+      while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+  
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+      }
+  
+      return array;
+    }
+  
+    function displayPopup(popupType) {
+      var popup;
+  
+      if (popupType === 'correct') {
+        popup = document.getElementById('correctPopup');
+      } else if (popupType === 'wrong') {
+        popup = document.getElementById('wrongPopup');
+      }
+  
+      popup.style.display = 'block';
+    }
+  
+    function closePopup() {
+      var correctPopup = document.getElementById('correctPopup');
+      var wrongPopup = document.getElementById('wrongPopup');
+  
+      correctPopup.style.display = 'none';
+      wrongPopup.style.display = 'none';
+    }
+  
+    function nextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex >= questions.length) {
+        // If the currentQuestionIndex exceeds the length of questions array, display the final score.
+        sendScore(); // Send the score to the server
+        alert('Quiz is finished. Your final score is: ' + score);
+        // You may choose to redirect to another page here or reset the game.
+      } else {
+        displayQuestion();
+      }
+    }
+
+  // Rufe die Fragen vom Server ab, sobald die Seite geladen ist
+    window.addEventListener('load', function () {
+      getQuestions();
+    });
+    
+    // Neue Funktion zum Senden des Punktestands als JSON an die API
+    function sendScore() {
+      const scoreData = {
+        username: profileNameElement.textContent,
+        score: score
+      };
+  
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '/score-myquiz', true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          console.log('Score sent successfully');
+        }
+      };
+      xhr.send(JSON.stringify(scoreData));
+    }
+
+
+  function closePopup() {
+  var correctPopup = document.getElementById('correctPopup');
+  var wrongPopup = document.getElementById('wrongPopup');
+
+  correctPopup.style.display = 'none';
+  wrongPopup.style.display = 'none';
+
+  nextQuestion(); // Rufe die nächste Frage auf, nachdem das Popup-Fenster geschlossen wurde
+}
+</script>
+<style>
+  /* CSS-Styling für die Quizseite */
+  body {
+    font-family: 'Lucida Sans', Verdana, sans-serif;
+  }
+
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin: 30px;
+  }
+
+  .profile-name {
+    margin-left: auto;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  .main-content {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-top: 20px;
+  }
+
+  input[type="text"] {
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .question {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    height: 150px;
+  }
+
+  .score {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+  }
+
+  button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #269aae;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #1b707e;
+  }
+
+  .quiz-container {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px;
+    margin: 20px auto;
+  }
+
+  .answers-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .answer {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    width: 45%;
+    height: 130px;
+    margin: 5px;
+  }
+  
+  .points {
+    border-radius: 15px;
+    width: 15%;
+    margin: 5px;
+    background-color: #fff;
+    padding: 5px 10px;
+  }
+
+  /* CSS-Styling für das Pop-up-Fenster */
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+
+  .popup-content {
+    background-color: white;
+    width: 300px;
+    height: auto;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .popup-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .popup-message {
+    margin-bottom: 20px;
+  }
+
+  .popup-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</body>
+</html>

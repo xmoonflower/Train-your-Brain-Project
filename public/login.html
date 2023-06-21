@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Benutzerregistrierung und Anmeldung</title>
+</head>
+<body>
+  <h1>Registrierung</h1>
+  <form id="registerForm">
+    <label for="registerUsername">Benutzername:</label>
+    <input type="text" id="registerUsername" required><br><br>
+    <label for="registerPassword">Passwort:</label>
+    <input type="password" id="registerPassword" required><br><br>
+    <input type="submit" value="Registrieren">
+  </form>
+  <h1>Anmeldung</h1>
+  <form id="loginForm">
+    <label for="loginUsername">Benutzername:</label>
+    <input type="text" id="loginUsername" required><br><br>
+    <label for="loginPassword">Passwort:</label>
+    <input type="password" id="loginPassword" required><br><br>
+    <input type="submit" value="Anmelden">
+  </form>
+  <script>
+    // Funktion zum Setzen des Benutzernamen-Cookies
+    function setCookie(name, value) {
+      document.cookie = name + '=' + value + '; path=/; SameSite=None; Secure';
+    }
+
+    // Event Listener für das Anmeldeformular
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var username = document.getElementById('loginUsername').value;
+      var password = document.getElementById('loginPassword').value;
+
+      var loginData = {
+        username: username,
+        password: password
+      };
+
+      fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(loginData)
+      })
+        .then(function(response) {
+          if (response.ok) {
+            alert('Anmeldung war erfolgreich');
+            document.getElementById('loginForm').reset();
+            setCookie('username', username); // Setzen des Benutzernamen-Cookies
+            var redirectUrl = '/startseite';
+            window.location.href = redirectUrl;
+          } else {
+            alert('Ungültige Anmeldedaten');
+          }
+        })
+        .catch(function(error) {
+          console.log(error);
+          alert('Fehler bei der Anmeldung');
+        });
+    });
+
+    // Event Listener für das Registrierungsformular
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var username = document.getElementById('registerUsername').value;
+      var password = document.getElementById('registerPassword').value;
+
+      var registerData = {
+        username: username,
+        password: password
+      };
+
+      fetch('/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(registerData)
+      })
+        .then(function(response) {
+          if (response.ok) {
+            alert('Registrierung war erfolgreich.');
+            document.getElementById('registerForm').reset();
+            setCookie('username', username); // Setzen des Benutzernamen-Cookies
+            var redirectUrl = '/startseite';
+            window.location.href = redirectUrl;
+          } else {
+            alert('Fehler bei der Registrierung');
+          }
+        })
+        .catch(function(error) {
+          console.log(error);
+          alert('Fehler bei der Registrierung');
+        });
+    });
+
+  </script>
+  <style>
+body {
+  font-family: 'Lucida Sans', Verdana, sans-serif;
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: colorChange 3s infinite alternate;
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: #37b9c8ac;
+  }
+  50% {
+    background-color: #1d7e89a7,
+  }
+  100% {
+    background-color: #6bd2e0a8,
+  }
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 90%;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+/* Button-Design */
+input[type="submit"] {
+  background-color: #269aae;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #1b707e;
+}
+
+.error-message {
+  color: #ff0000;
+  margin-top: 10px;
+}
+  </style>
+</body>
+</html>

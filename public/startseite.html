@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Train your brain</title>
+</head>
+<body>
+  <header>
+    <div class="burger-menu" onclick="toggleMenu()">&#9776;</div>
+    <h1>Train your brain</h1>
+    <div class="profile-name"></div>
+  </header>
+  <div class="main-content">
+    <h2>Willkommen auf der Startseite!</h2>
+    <button class="quiz-button" onclick="showQuizStart()">Enter Quiz</button>
+    <button class="quiz-button" onclick="showConfirmPopup()">Play Quiz</button>
+  </div>
+  <div class="menu">
+    <a href="/play1">Linux</a>
+    <a href="/play">AWS Quiz</a>
+    <a href="/make-quiz">Make Quiz</a>
+    <a href="/frageliste">All Questions</a>
+    <a href="/scoreboard">Scoreboard My Quiz</a>
+    <a href="/scoreboard-aws">Scoreboard AWS</a>
+    <a href="/scoreboard-linux">Scoreboard Linux</a>
+  </div>
+  <div class="popup" id="quiz-popup">
+    <h2>Enter Quiz</h2>
+    <button onclick="startQuiz1()">Linux</button>
+    <button onclick="startQuiz2()">AWS</button>
+  </div>
+  <div class="popup" id="answer-popup">
+    <h2 id="popup-message"></h2>
+    <button onclick="hidePopup()">Weiter</button>
+  </div>
+  <div class="popup" id="confirm-popup">
+    <h2>Confirm</h2>
+    <p>Möchtest du dein Quiz starten?</p>
+    <button onclick="startMyQuiz()">Ja</button>
+    <button onclick="hidePopup()">Nein</button>
+  </div>
+  <script>
+    // Erhalte das Profilnamen-Element
+    const profileNameElement = document.querySelector('.profile-name');
+
+    // Überprüfe, ob das `username`-Cookie vorhanden ist
+    if (document.cookie.includes('username')) {
+      // Extrahiere den Wert des `username`-Cookies
+      const username = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('username='))
+        .split('=')[1];
+
+      // Setze den Profilnamen im HTML-Element
+      profileNameElement.textContent = username;
+
+      // Füge den Klick-Eventhandler hinzu
+      profileNameElement.innerHTML += `
+        <button class="profile-logout" onclick="logout()">Logout</button>
+      `;
+    } else {
+      // Wenn das `username`-Cookie nicht vorhanden ist, zeige eine Standardnachricht an
+      profileNameElement.textContent = 'Unbekannter Benutzer';
+    }
+
+    function logout() {
+      // Lösche das `username`-Cookie
+      document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+
+      // Leite zur Seite /registration weiter
+      window.location.href = '/registration';
+    }
+
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function showQuizStart() {
+      const popup = document.getElementById('quiz-popup');
+      popup.style.display = 'block';
+    }
+
+    function showConfirmPopup() {
+      const popup = document.getElementById('confirm-popup');
+      popup.style.display = 'block';
+    }
+
+    function hidePopup() {
+      const popups = document.querySelectorAll('.popup');
+      popups.forEach((popup) => {
+        popup.style.display = 'none';
+      });
+    }
+     // Funktion für den Start des Linux-Quiz
+  function startQuiz1() {
+    // Weiterleitung zur "/play1" URL
+    window.location.href = "/play1";
+  }
+
+  // Funktion für den Start des AWS-Quiz
+  function startQuiz2() {
+    // Weiterleitung zur "/play2" URL
+    window.location.href = "/play";
+  }
+  //Funktion für den Start des eigenen Quizzes
+  function startMyQuiz() {
+    // Weiterleitung zur "/play2" URL
+    window.location.href = "/play2";
+  }
+  </script>
+  <style>
+    /* CSS-Styling für die Startseite */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgba(65, 65, 65, 0.215);
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      margin: 30px;
+    }
+
+    .burger-menu {
+      margin-right: 20px;
+      cursor: pointer;
+    }
+
+    .profile-name {
+      margin-left: auto;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+
+    .profile-logout {
+      margin-left: 20px;
+      padding: 5px 10px;
+      background-color: #eae02983;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .profile-logout:hover {
+      background-color: #97911d8f;
+    }
+
+    .main-content {
+      text-align: center;
+      margin-top: 50px;
+      margin-top: 120px;
+    }
+
+    .quiz-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #269aae;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .quiz-button:hover {
+      background-color: #1b707e;
+    }
+
+    /* CSS-Styling für das Burger-Menü */
+    .menu {
+      position: absolute;
+      top: 130px;
+      left: 40px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      display: none;
+    }
+
+    .menu a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* CSS-Styling für die Quizseite */
+    .quiz-title {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .question {
+      margin-top: 20px;
+    }
+
+    .score {
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      text-align: center;
+      display: none;
+    }
+
+    .popup button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #269aae;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .popup button:hover {
+      background-color: #1b707e;
+    }
+  </style>
+</body>
+</html>

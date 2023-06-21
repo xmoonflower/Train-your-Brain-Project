@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <title>Quiz Scoreboard</title>
+    <button onclick="window.location.href='/startseite'">Startseite</button><br>
+    <button onclick="window.location.href = '/play'">Zurück</button>
+  </head>
+  <body>
+    <h1>Quiz Scoreboard AWS</h1>
+    <p>This is a leaderboard for the top users in our quiz game:</p><br>
+    <div class="top-users">Top Users:</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboard"></tbody>
+    </table>
+  <script>
+    // Funktion zum Abrufen der JSON-Daten und Aktualisieren des Scoreboards
+    function updateScoreboard() {
+      fetch("/score-aws")
+        .then(response => response.json())
+        .then(data => {
+          // Sortieren der Benutzer nach Punktzahl in absteigender Reihenfolge
+          data.sort((a, b) => b.score - a.score);
+
+          // Begrenzen der Anzahl der anzuzeigenden Benutzer auf 10
+          var topUsers = data.slice(0, 10);
+
+          // Löschen des vorherigen Scoreboards
+          var leaderboard = document.getElementById("leaderboard");
+          leaderboard.innerHTML = "";
+
+          // Hinzufügen der Benutzer zum Scoreboard
+          topUsers.forEach(user => {
+            var row = document.createElement("tr");
+            row.classList.add("user-row");
+
+            var usernameCell = document.createElement("td");
+            usernameCell.textContent = user.username;
+
+            var scoreCell = document.createElement("td");
+            scoreCell.textContent = user.score;
+
+            row.appendChild(usernameCell);
+            row.appendChild(scoreCell);
+            leaderboard.appendChild(row);
+          });
+        })
+        .catch(error => {
+          console.error("Fehler beim Abrufen der JSON-Daten:", error);
+        });
+    }
+
+    // Aktualisieren des Scoreboards alle 5 Sekunden
+    setInterval(updateScoreboard, 200);
+  </script>
+  <style>
+      body {
+        font-family: 'Lucida Sans', Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h1, p {
+        color: #e79806;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      th {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        border-radius: 10px;
+        margin-right: 10px;
+        color: #fff;
+      }
+
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        border-radius: 10px;
+        margin-right: 10px;
+        color: #000;
+      }
+
+      th {
+        background-color: #269aae;
+      }
+      .top-users {
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+      .user-row {
+        font-weight: normal;
+        color: #e79806;
+      }
+
+      button {
+      margin-right: 10px;
+      padding: 10px 20px;
+      background-color: #269aae;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      }
+
+      button:hover {
+      background-color: #1b707e;
+      }
+
+    </style>
+    </body>
+</html>

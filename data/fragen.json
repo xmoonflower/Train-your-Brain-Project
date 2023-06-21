@@ -1,0 +1,28 @@
+[
+  {
+    "id": "1",
+    "question": "Um wieviel Grad ist die Erdachse geneigt?",
+    "answer": {
+      "A": "13,7°",
+      "B": "20°",
+      "C": "7,13°",
+      "D": "23,4°"
+    },
+    "correct_answer": [
+      "D"
+    ]
+  },
+  {
+    "id": "2",
+    "question": "Welcher Planet ist der größte in unserem Sonnensystem?",
+    "answer": {
+      "A": "Uranus",
+      "B": "Saturn",
+      "C": "Jupiter",
+      "D": "Neptun"
+    },
+    "correct_answer": [
+      "C"
+    ]
+  }
+]

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Train your brain - Make Quiz</title>
+</head>
+<body>
+  <header>
+    <h1>Train your brain - Make Quiz</h1>
+    <div class="profile-name"></div>
+  </header>
+  <div class="main-content">
+    <form id="quizForm">
+      <label for="question">Frage:</label>
+      <input type="text" id="question" name="question" required>
+      <label for="option1">Option A:</label>
+      <input type="text" id="option1" name="option1" required>
+      <label for="option2">Option B:</label>
+      <input type="text" id="option2" name="option2" required>
+      <label for="option3">Option C:</label>
+      <input type="text" id="option3" name="option3" required>
+      <label for="option4">Option D:</label>
+      <input type="text" id="option4" name="option4" required>
+      <label for="correctOption">Richtige Option:</label>
+      <input type="text" id="correctOption" name="correctOption" maxlength="1" required><br>
+      <button type="submit">Quizfrage erstellen</button>
+      <button onclick="window.location.href = '/startseite'">Startseite</button>
+      <button onclick="window.location.href = '/play2'">Play Quiz</button>
+      <button id="shareButton">Teilen</button>
+    </form>
+  </div>
+  <script>
+    // Erhalte das Profilnamen-Element
+    const profileNameElement = document.querySelector('.profile-name');
+
+    // Überprüfe, ob das `username`-Cookie vorhanden ist
+    if (document.cookie.includes('username')) {
+      // Extrahiere den Wert des `username`-Cookies
+      const username = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('username='))
+        .split('=')[1];
+
+      // Setze den Profilnamen im HTML-Element
+      profileNameElement.textContent = username;
+    }
+
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Verhindert das Neuladen der Seite nach dem Absenden des Formulars
+
+      // Hole die eingegebenen Werte
+      var question = document.getElementById('question').value;
+      var option1 = document.getElementById('option1').value;
+      var option2 = document.getElementById('option2').value;
+      var option3 = document.getElementById('option3').value;
+      var option4 = document.getElementById('option4').value;
+      var correctOption = document.getElementById('correctOption').value.toUpperCase();
+
+      // Extrahiere den Wert des `username`-Cookies
+      const usernameCookie = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('username='))
+        .split('=')[1];
+
+      // Entferne eventuelle Anführungszeichen aus dem Cookie-Wert
+      const username = usernameCookie.replace(/"/g, '');
+
+      // Erstelle ein JSON-Objekt mit den eingegebenen Werten und dem Benutzernamen
+      var quizData = {
+        question: question,
+        answer: {
+          A: option1,
+          B: option2,
+          C: option3,
+          D: option4
+        },
+        correct_answer: [correctOption],
+        username: username
+      };
+
+      // Daten werden an den Server gesendet
+      fetch('/frage-hinzufuegen', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(quizData)
+      })
+        .then(function(response) {
+          if (response.ok) {
+            // Zeige eine Erfolgsmeldung an
+            alert('Die Quizfrage wurde erfolgreich erstellt und gespeichert.');
+            // Leere die Eingabefelder
+            document.getElementById('quizForm').reset();
+          } else {
+            // Zeige eine Fehlermeldung an
+            alert('Beim Speichern der Quizfrage ist ein Fehler aufgetreten.');
+          }
+        })
+        .catch(function(error) {
+          console.log(error);
+          // Zeige eine Fehlermeldung an
+          alert('Beim Speichern der Quizfrage ist ein Fehler aufgetreten.');
+        });
+    });
+
+    document.getElementById('shareButton').addEventListener('click', function() {
+      // Pfad zur Fragen-Datei
+      var questionsFile = 'frage';
+
+      // Erstelle eine URL zum Teilen der Datei
+      var shareURL = window.location.href.split('/').slice(0, -1).join('/') + '/' + questionsFile;
+
+      // Erstelle ein Teilen-Dialogfeld
+      if (navigator.share) {
+        navigator.share({
+          title: 'Fragen teilen',
+          url: shareURL
+        })
+          .then(function() {
+            console.log('Datei erfolgreich geteilt.');
+          })
+          .catch(function(error) {
+            console.log('Fehler beim Teilen der Datei:', error);
+          });
+      } else {
+        console.log('Der Teilen-Dialog wird von diesem Gerät nicht unterstützt.');
+        // Zeige alternativen Code für das Teilen an, z.B. einen Link oder eine Nachricht an den Benutzer.
+      }
+    });
+  </script>
+  <style>
+    /* CSS-Styling für die Make Quiz-Seite */
+    body {
+      font-family:'Lucida Sans', sans-serif;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      margin: 30px;
+    }
+
+    .profile-name {
+      margin-left: auto;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+    .main-content {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #269aae;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+    background-color: #1b707e;
+  }
+  </style>
+</body>
+</html>

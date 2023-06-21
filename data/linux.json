@@ -1,0 +1,559 @@
+[{
+    "id" : "0",
+    "question" : "Welche der folgenden Möglichkeiten ist nur bei der Verwendung von Open-Source-Software verfügbar?",
+    "answer" : {
+        "A" : "Freier Download aller vorhandenen Versionen",
+        "B" : "Freie Nutzung für limitierte Anzahl Nutzer",
+        "C" : "Zugriff auf die Dokumentation",
+        "D" : "Zugriff auf den Quellcode"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "1",
+    "question" : "Was bewirkt der Befehl 'chmod 4755' auf eine Datei und welche Berechtigungen werden dadurch gesetzt?",
+    "answer" : {
+        "A" : "Die Datei wird für alle Benutzer lesbar, schreibbar und ausführbar gemacht.",
+        "B" : "Die Datei wird für den Eigentümer lesbar, schreibbar und ausführbar gemacht.",  
+        "C" : "Die Datei wird für den Eigentümer lesbar, schreibbar und ausführbar gemacht, während für Gruppen- und andere Benutzer nur die Ausführungsrechte gesetzt werden.",
+        "D" : "Die Datei wird für den Eigentümer und die Gruppe lesbar, schreibbar und ausführbar gemacht, während für andere Benutzer nur die Ausführungsrechte gesetzt werden."
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "2",
+    "question" : "Welcher Befehl zeigt die Liste der Gruppen an, zu denen ein Benutzer gehört?",
+    "answer" : {
+        "A" : "Whoami",
+        "B" : "Isgroup",  
+        "C" : "who",
+        "D" : "Id"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "3",
+    "question" : "Welche der folgenden Befehle sind korrekt, um das aktuelle Verzeichnis in das Home-Verzeichnis des Benutzers zu ändern? (Wählen Sie ZWEI Antworten)",
+    "answer" : {
+        "A" : "cd~",
+        "B" : "cd..",  
+        "C" : "cd",
+        "D" : "cd/"
+    },
+    "correct_answer" : "A,C"
+},{
+    "id" : "4",
+    "question" : "Welche der folgenden Dateien enthält die Definition der lokalen Benutzerkonten?",
+    "answer" : {
+        "A" : "/etc/home",
+        "B" : "/etc/users",  
+        "C" : "/etc/passwd",
+        "D" : "/etc/id"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "5",
+    "question" : "Welche Aussage über das Verzeichnis /etc/skel ist richtig? (Wählen Sie zwei Antworten)",
+    "answer" : {
+        "A" : "Die persönlichen Einstellungen von root befinden sich in diesem Verzeichnis",
+        "B" : "Die Dateien aus dem Verzeichnis werden beim Start des Systems in das Home-Verzeichnis des neuen Benutzers kopiert",  
+        "C" : "Die Dateien aus dem Verzeichnis werden beim Erstellen des Kontos in das Home-Verzeichnis des neuen Benutzers kopiert",
+        "D" : "Das Verzeichnis enthält einen Standardsatz von Konfigurationsdateien, die vom Befehl useradd verwendet werden"
+    },
+    "correct_answer" : "B,C"
+},
+{
+    "id" : "6",
+    "question" : "Wie könnte man nach der Datei foo.txt im Verzeichnis /home suchen?",
+    "answer" : {
+        "A" : "find /home -name foo.txt",
+        "B" : "find /home -file foo.txt",  
+        "C" : "search /home foo.txt",
+        "D" : "find /home foo.txt"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "7",
+    "question" : "Welches der folgenden Systeme ist ein mobiles Betriebssystem, das auf einer modifizierten Version des Linux-Kernels basiert und hauptsächlich für mobile Geräte mit Touchscreen entwickelt wurde?",
+    "answer" : {
+        "A" : "Symbian",
+        "B" : "Android",  
+        "C" : "LinuxMobile",
+        "D" : "Linux Go"
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "8",
+    "question" : "Welche Option kann verwendet werden, um die Fehler eines Befehls in eine bestimmte Datei umzuleiten?",
+    "answer" : {
+        "A" : "1>",
+        "B" : "2>",  
+        "C" : "E>",
+        "D" : "X>"
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "9",
+    "question" : "Ihr System hat ein Problem, von dem Sie annehmen, dass es durch einen fehlerhaften Gerätetreiber verursacht wird. Welchen der folgenden Befehle sollten Sie verwenden, um den Nachrichtenpuffer des Kernels zu drucken?",
+    "answer" : {
+        "A" : "printdriver",
+        "B" : "dmesg",  
+        "C" : "ps",
+        "D" : "syslog"
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "10",
+    "question" : "Was ist der Standard-Shell-Befehl, um das aktuelle Verzeichnis anzuzeigen?",
+    "answer" : {
+        "A" : "ls",
+        "B" : "cd",  
+        "C" : "pwd",
+        "D" : "dir"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "11",
+    "question" : "Welcher Befehl wird verwendet, um eine Datei im Linux-Terminal zu erstellen?",
+    "answer" : {
+        "A" : "touch",
+        "B" : "create",  
+        "C" : "new",
+        "D" : "make"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "12",
+    "question" : "Wie kann man das aktuelle Verzeichnis anzeigen?",
+    "answer" : {
+        "A" : "pwd",
+        "B" : "cd",  
+        "C" : "ls",
+        "D" : "mkdir"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "13",
+    "question" : "Wie kann man in ein übergeordnetes Verzeichnis wechseln? ",
+    "answer" : {
+        "A" : "cd..",
+        "B" : "cd /",  
+        "C" : "cd ~",
+        "D" : "cd -"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "14",
+    "question" : "Wie kann man den Inhalt eines Verzeichnisses anzeigen?",
+    "answer" : {
+        "A" : "ls",
+        "B" : "pwd",  
+        "C" : "cp",
+        "D" : "mv"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "15",
+    "question" : "Wie kann man eine Datei in ein anderes Verzeichnis verschieben?",
+    "answer" : {
+        "A" : "mv",
+        "B" : "cp",  
+        "C" : "rm",
+        "D" : "touch"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "16",
+    "question" : "Wie kann man ein Verzeichnis und alle seine Inhalte rekursiv löschen?",
+    "answer" : {
+        "A" : "rm -rf",
+        "B" : "rmdir",  
+        "C" : "rm -r",
+        "D" : "rm -d"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "17",
+    "question" : "Wie kann man die Berechtigungen einer Datei ändern?",
+    "answer" : {
+        "A" : "chmod",
+        "B" : "chown",  
+        "C" : "chgrp",
+        "D" : "chperm"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "18",
+    "question" : "Wie kann man die Größe eines Verzeichnisses anzeigen?",
+    "answer" : {
+        "A" : "df",
+        "B" : "ls",  
+        "C" : "du",
+        "D" : "stat"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "19",
+    "question" : "Wie kann man die Rechte einer Datei anzeigen?",
+    "answer" : {
+        "A" : "ls -l",
+        "B" : "ls -p",  
+        "C" : "ls -a",
+        "D" : "ls -r"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "20",
+    "question" : "Wie kann man in der Befehlszeile einen Text in eine Datei schreiben?",
+    "answer" : {
+        "A" : "echo 'text' > datei.txt",
+        "B" : "cat datei.txt",  
+        "C" : "touch datei.txt",
+        "D" : "mv datei.txt"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "21",
+    "question" : "Welcher Befehl wird verwendet, um den Inhalt einer Datei auf dem Bildschirm anzuzeigen?",
+    "answer" : {
+        "A" : "cat",
+        "B" : "cp",  
+        "C" : "mv",
+        "D" : "rm"
+    },
+    "correct_answer" : "A"
+},{
+    "id" : "22",
+    "question" : "Wie kann man alle Dateien in einem Verzeichnis löschen?",
+    "answer" : {
+        "A" : "rmdir",
+        "B" : "rm *",  
+        "C" : "mv",
+        "D" : "cp"
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "23",
+    "question" : "Wie kann man den Inhalt einer Datei anhand eines bestimmten Musters durchsuchen?",
+    "answer" : {
+        "A" : "grep",
+        "B" : "sed",  
+        "C" : "awk",
+        "D" : "find"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "24",
+    "question" : "Welcher Befehl wird verwendet, um Dateien und Verzeichnisse zu kopieren?",
+    "answer" : {
+        "A" : "mv",
+        "B" : "cp",  
+        "C" : "mkdir",
+        "D" : "rm"
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "25",
+    "question" : "Welcher Befehl wird verwendet, um die Liste der laufenden Prozesse anzuzeigen?",
+    "answer" : {
+        "A" : "top",
+        "B" : "ps",  
+        "C" : "kill",
+        "D" : "restart"
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "26",
+    "question" : "Wie kann man eine Datei auf einem entfernten Server über SSH kopieren?",
+    "answer" : {
+        "A" : "ssh",
+        "B" : "ftp",  
+        "C" : "sftp",
+        "D" : "scp"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "27",
+    "question" : "Welcher Befehl wird verwendet, um das Passwort für einen Benutzer zu ändern?",
+    "answer" : {
+        "A" : "passwd",
+        "B" : "useradd",  
+        "C" : "usermod",
+        "D" : "userdel"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "28",
+    "question" : "Wie kann man die IP-Adresse eines Linux-Systems anzeigen?",
+    "answer" : {
+        "A" : "ifconfig",
+        "B" : "ipconfig",  
+        "C" : "netstat",
+        "D" : "ping"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "29",
+    "question" : "Welcher Befehl wird verwendet, um das Linux-Betriebssystem herunterzufahren?",
+    "answer" : {
+        "A" : "reboot",
+        "B" : "poweroff",  
+        "C" : "shutdown",
+        "D" : "stop"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "30",
+    "question" : "Welcher Befehl wird verwendet, um eine Verbindung zu einem entfernten Server herzustellen?",
+    "answer" : {
+        "A" : "ssh",
+        "B" : "telnet",  
+        "C" : "rlogin",
+        "D" : "ftp"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "31",
+    "question" : "Welcher Befehl wird verwendet, um das Root-Verzeichnis anzuzeigen? ",
+    "answer" : {
+        "A" : "/",
+        "B" : "~",  
+        "C" : "..",
+        "D" : "#"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "32",
+    "question" : "Wie kann man ein neues Verzeichnis erstellen?",
+    "answer" : {
+        "A" : "touch",
+        "B" : "mv",  
+        "C" : "rm",
+        "D" : "mkdir"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "33",
+    "question" : "Wie kann man eine Datei umbenennen?",
+    "answer" : {
+        "A" : "mv",
+        "B" : "cp",  
+        "C" : "rm",
+        "D" : "rename"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "34",
+    "question" : "Welcher Befehl wird verwendet, um den freien Speicherplatz auf einer Festplatte anzuzeigen?",
+    "answer" : {
+        "A" : "df",
+        "B" : "du",  
+        "C" : "fsck",
+        "D" : "fdisk"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "35",
+    "question" : "Wie kann man einen Benutzer aus einer Gruppe entfernen?",
+    "answer" : {
+        "A" : "gpasswd",
+        "B" : "usermod",  
+        "C" : "userdel",
+        "D" : "chgrp"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "36",
+    "question" : "Welcher Befehl wird verwendet, um den Inhalt einer Datei zu sortieren? ",
+    "answer" : {
+        "A" : "grep",
+        "B" : "awk",  
+        "C" : "sort",
+        "D" : "sed"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "37",
+    "question" : "Welcher Befehl wird verwendet, um den aktuellen Benutzer anzuzeigen?",
+    "answer" : {
+        "A" : "who",
+        "B" : "w",  
+        "C" : "whoami",
+        "D" : "users"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "38",
+    "question" : "Welcher Befehl wird verwendet, um die Netzwerkkonfiguration anzuzeigen?",
+    "answer" : {
+        "A" : "ifconfig",
+        "B" : "netstat",  
+        "C" : "route",
+        "D" : "ip"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "39",
+    "question" : "Wie kann man eine Datei mit einem anderen Namen in das gleiche Verzeichnis kopieren?",
+    "answer" : {
+        "A" : "cp file newfile",
+        "B" : "mv file newfile",  
+        "C" : "cp file ../newfile",
+        "D" : "mv file ../newfile"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "40",
+    "question" : "Welcher Befehl wird verwendet, um den Inhalt eines Verzeichnisses rekursiv anzuzeigen?",
+    "answer" : {
+        "A" : "ls -l",
+        "B" : "ls -a",  
+        "C" : "ls -R",
+        "D" : "ls -d"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "41",
+    "question" : "Wie kann man eine Datei mit einem anderen Benutzer besitzen?",
+    "answer" : {
+        "A" : "chown",
+        "B" : "chgrp",  
+        "C" : "chmod",
+        "D" : "usermod"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "42",
+    "question" : "Welcher Befehl wird verwendet, um den Inhalt einer Datei zu bearbeiten?",
+    "answer" : {
+        "A" : "vi",
+        "B" : "nano",  
+        "C" : "emacs",
+        "D" : "modify"
+    },
+    "correct_answer" : "A,B"
+},
+{
+    "id" : "43",
+    "question" : "Welcher Befehl wird verwendet, um ein Archiv zu erstellen oder zu extrahieren?",
+    "answer" : {
+        "A" : "compress",
+        "B" : "zip",  
+        "C" : "tar",
+        "D" : "archive"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "44",
+    "question" : "Wie können Sie den Inhalt einer Textdatei in umgekehrter Reihenfolge anzeigen?",
+    "answer" : {
+        "A" : "reverse",
+        "B" : "invert",  
+        "C" : "rev",
+        "D" : "backward"
+    },
+    "correct_answer" : "C"
+},
+{
+    "id" : "45",
+    "question" : "Welcher Befehl wird verwendet, um das Betriebssystem neu zu starten?",
+    "answer" : {
+        "A" : "reboot",
+        "B" : "restart",  
+        "C" : "start",
+        "D" : "shutdown -r"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "46",
+    "question" : "Welcher Befehl wird verwendet, um eine versteckte Datei anzuzeigen?",
+    "answer" : {
+        "A" : "showhidden",
+        "B" : "unhide",  
+        "C" : "viewhidden",
+        "D" : "ls -a"
+    },
+    "correct_answer" : "D"
+},
+{
+    "id" : "47",
+    "question" : "Welcher Befehl wird verwendet, um den Netzwerkstatus anzuzeigen?",
+    "answer" : {
+        "A" : "network",
+        "B" : "netstat",  
+        "C" : "status",
+        "D" : "ifconfig"
+    },
+    "correct_answer" : "B"
+},
+{
+    "id" : "48",
+    "question" : "Welcher Befehl wird verwendet, um den Prozessstatus anzuzeigen?",
+    "answer" : {
+        "A" : "ps",
+        "B" : "status",  
+        "C" : "process",
+        "D" : "tasklist"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "49",
+    "question" : "Welcher Befehl wird verwendet, um die Netzwerkkonnektivität zu prüfen?",
+    "answer" : {
+        "A" : "ping",
+        "B" : "checknet",  
+        "C" : "netcheck",
+        "D" : "connecttest"
+    },
+    "correct_answer" : "A"
+},
+{
+    "id" : "50",
+    "question" : "Wie können Sie die Manpage (Handbuchseite) für einen bestimmten Befehl anzeigen?",
+    "answer" : {
+        "A" : "man",
+        "B" : "help",  
+        "C" : "info",
+        "D" : "command"
+    },
+    "correct_answer" : "A"
+}]

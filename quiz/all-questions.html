@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meine Fragen</title>
+</head>
+<body>
+  <div class="buttons">
+  <button onclick="window.location.href = '/startseite'">Startseite</button>
+  </div>
+  <h2>AWS Fragen</h2>
+  <table id="aws-tabelle">
+    <thead>
+      <tr>
+        <th>Fragen</th>
+        <th>Aktion</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <h2>Linux Fragen</h2>
+  <table id="linux-tabelle">
+    <thead>
+      <tr>
+        <th>Fragen</th>
+        <th>Aktion</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <h2>eigene Fragen</h2>
+  <table id="fragen-tabelle">
+    <thead>
+      <tr>
+        <th>Fragen</th>
+        <th>Aktion</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script>
+    class JSONAdapter {
+      static formatQuestion(question) {
+        const formattedQuestion = `Frage: ${question.question}<br>`;
+        const formattedAnswers = `Antworten:<br>
+          A: ${question.answer.A}<br>
+          B: ${question.answer.B}<br>
+          C: ${question.answer.C}<br>
+          D: ${question.answer.D}<br>`;
+        const formattedCorrectAnswer = `Korrekte Antwort: ${question.correct_answer}<br><br>`;
+        return formattedQuestion + formattedAnswers + formattedCorrectAnswer;
+      }
+    }
+    // Funktion zum Löschen einer Frage
+    function deleteQuestion(questionId) {
+      fetch(`/delete-question/${questionId}`, {
+        method: 'DELETE'
+      })
+        .then(response => {
+          if (response.ok) {
+            // Frage erfolgreich gelöscht, aktualisiere die Tabelle
+            location.reload();
+          } else {
+            // Fehler beim Löschen der Frage
+            alert('Beim Löschen der Frage ist ein Fehler aufgetreten.');
+          }
+        })
+        .catch(error => {
+          console.error('Fehler beim Löschen der Frage:', error);
+          alert('Beim Löschen der Frage ist ein Fehler aufgetreten.');
+        });
+    }
+    // Daten aus awsquiz.json abrufen
+    fetch('/questions')
+      .then(response => response.json())
+      .then(data => {
+        const awsTabelle = document.getElementById('aws-tabelle');
+        
+        // Fragen in die Tabelle einfügen
+        data.forEach(frage => {
+          const row = document.createElement('tr');
+          const frageCell = document.createElement('td');
+          const aktionCell = document.createElement('td');
+
+          const formattedQuestion = JSONAdapter.formatQuestion(frage);
+          frageCell.innerHTML = formattedQuestion;
+
+          const deleteButton = document.createElement('button');
+          deleteButton.textContent = 'Löschen';
+          deleteButton.addEventListener('click', () => deleteQuestion(frage.id));
+          aktionCell.appendChild(deleteButton);
+
+          row.appendChild(frageCell);
+          row.appendChild(aktionCell);
+          awsTabelle.querySelector('tbody').appendChild(row);
+        });
+      });
+
+    // Daten aus linux.json abrufen
+    fetch('fragen-linux')
+      .then(response => response.json())
+      .then(data => {
+        const linuxTabelle = document.getElementById('linux-tabelle');
+
+        // Fragen in die Tabelle einfügen
+        data.forEach(frage => {
+          const row = document.createElement('tr');
+          const frageCell = document.createElement('td');
+          const aktionCell = document.createElement('td');
+
+          const formattedQuestion = JSONAdapter.formatQuestion(frage);
+          frageCell.innerHTML = formattedQuestion;
+
+          const deleteButton = document.createElement('button');
+          deleteButton.textContent = 'Löschen';
+          deleteButton.addEventListener('click', () => deleteQuestion(frage.id));
+          aktionCell.appendChild(deleteButton);
+
+          row.appendChild(frageCell);
+          row.appendChild(aktionCell);
+          linuxTabelle.querySelector('tbody').appendChild(row);
+        });
+      });
+
+    fetch('frage')
+      .then(response => response.json())
+      .then(data => {
+        const fragenTabelle = document.getElementById('fragen-tabelle');
+
+        data.forEach(frage => {
+          const row = document.createElement('tr');
+          const frageCell = document.createElement('td');
+          const aktionCell = document.createElement('td');
+
+          const formattedQuestion = JSONAdapter.formatQuestion(frage);
+          frageCell.innerHTML = formattedQuestion;
+
+          const deleteButton = document.createElement('button');
+          deleteButton.textContent = 'Löschen';
+          deleteButton.addEventListener('click', () => deleteQuestion(frage.id));
+          aktionCell.appendChild(deleteButton);
+
+          row.appendChild(frageCell);
+          row.appendChild(aktionCell);
+          fragenTabelle.querySelector('tbody').appendChild(row);
+        });
+      });   
+  </script>
+  <style>
+    body {
+      font-family: 'Lucida Sans', Verdana, sans-serif;
+      background-color: #f1f1f1;
+      text-align: center;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      margin-right: 10px;
+      padding: 10px 20px;
+      background-color: #269aae;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+    background-color: #1b707e;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</body>
+</html>
