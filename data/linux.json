@@ -41,7 +41,8 @@
         "D" : "cd/"
     },
     "correct_answer" : "A,C"
-},{
+},
+{
     "id" : "4",
     "question" : "Welche der folgenden Dateien enthält die Definition der lokalen Benutzerkonten?",
     "answer" : {

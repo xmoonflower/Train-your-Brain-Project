@@ -315,7 +315,7 @@ app.post('/score-myquiz', (req, res) => {
   // Lese die vorhandenen Daten aus der Datei
   let existingData = [];
   try {
-    const fileData = fs.readFileSync('data/Punkte-myquiz.json', 'utf8');
+    const fileData = fs.readFileSync('data/score-myquiz.json', 'utf8');
     existingData = JSON.parse(fileData);
   } catch (error) {
     console.error('Fehler beim Lesen der Datei: ' + error);
